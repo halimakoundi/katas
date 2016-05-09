@@ -6,7 +6,9 @@ namespace FizzBuzz
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			for(int i = 1; i < 101 ; i ++ ){				
+				Console.WriteLine (FizzBuzzGame.printValue(i));
+			}
 		}
 	}
 }
