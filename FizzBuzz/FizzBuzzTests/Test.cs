@@ -36,6 +36,12 @@ namespace FizzBuzzTests
 		{
 			Assert.AreEqual ("Fizz", FizzBuzzGame.printValue(9));
 		}
+
+		[Test ()]
+		public void Give_15_prints_FizzBuzz_Test()
+		{
+			Assert.AreEqual ("FizzBuzz", FizzBuzzGame.printValue(15));
+		}
 	}
 }
 
