@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBuzz.csproj", "{8091B588-6D85-4EEA-8E56-2DBEA676F556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzTests", "FizzBuzzTests\FizzBuzzTests.csproj", "{EC6313DD-5C10-4CEF-AEF3-83D201FE33BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8091B588-6D85-4EEA-8E56-2DBEA676F556}.Debug|x86.ActiveCfg = Debug|x86
+		{8091B588-6D85-4EEA-8E56-2DBEA676F556}.Debug|x86.Build.0 = Debug|x86
+		{8091B588-6D85-4EEA-8E56-2DBEA676F556}.Release|x86.ActiveCfg = Release|x86
+		{8091B588-6D85-4EEA-8E56-2DBEA676F556}.Release|x86.Build.0 = Release|x86
+		{EC6313DD-5C10-4CEF-AEF3-83D201FE33BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC6313DD-5C10-4CEF-AEF3-83D201FE33BA}.Debug|x86.Build.0 = Debug|Any CPU
+		{EC6313DD-5C10-4CEF-AEF3-83D201FE33BA}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC6313DD-5C10-4CEF-AEF3-83D201FE33BA}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
