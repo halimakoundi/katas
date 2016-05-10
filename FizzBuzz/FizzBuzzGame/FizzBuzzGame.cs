@@ -6,8 +6,8 @@ namespace FizzBuzz
 	{
 		public string ReturnValue(int value)
 		{
-			var isFizz = value % 3 == 0;
-			var isBuzz = value % 5 == 0;
+			var isFizz = IsMultipleOf(value,3);
+			var isBuzz = IsMultipleOf(value,5);
 			if (isFizz && isBuzz) 
 			{
 				return "FizzBuzz";
