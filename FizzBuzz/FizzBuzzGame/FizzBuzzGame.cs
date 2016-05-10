@@ -4,10 +4,6 @@ namespace FizzBuzz
 {
 	public class FizzBuzzGame
 	{
-		public FizzBuzzGame ()
-		{
-		}
-
 		public string ReturnValue(int value)
 		{
 			var isFizz = value % 3 == 0;
@@ -25,6 +21,11 @@ namespace FizzBuzz
 				return "Buzz";
 			}
 			return value.ToString();
+		}
+
+		public bool IsMultipleOf(int value, int denominator)
+		{
+			return (value % denominator == 0);
 		}
 	}
 }
