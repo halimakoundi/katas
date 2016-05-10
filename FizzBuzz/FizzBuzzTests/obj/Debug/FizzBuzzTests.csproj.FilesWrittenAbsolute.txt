@@ -6,3 +6,5 @@
 /home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzTests.dll
 /home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/obj/Debug/FizzBuzzTests.dll
 /home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/obj/Debug/FizzBuzzTests.dll.mdb
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzGame.dll
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzGame.dll.mdb

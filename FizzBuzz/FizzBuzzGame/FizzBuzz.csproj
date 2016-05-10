@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC6313DD-5C10-4CEF-AEF3-83D201FE33BA}</ProjectGuid>
+    <ProjectGuid>{CB83D0E9-96F8-4B93-89F8-69552B47E2A9}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FizzBuzzTests</RootNamespace>
-    <AssemblyName>FizzBuzzTests</AssemblyName>
+    <RootNamespace>FizzBuzzGame</RootNamespace>
+    <AssemblyName>FizzBuzzGame</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,21 +29,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FizzBuzzGame.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="FizzBuzzGameTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FizzBuzzGame\FizzBuzz.csproj">
-      <Project>{CB83D0E9-96F8-4B93-89F8-69552B47E2A9}</Project>
-      <Name>FizzBuzz</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
