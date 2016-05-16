@@ -18,6 +18,12 @@ namespace LeapYearKataTests
     [TestFixture]
     public class LeapYearTests
     {
-
+        [Test]
+        public void Is2001NotLeapYear()
+        {
+            var leapYear = new LeapYear();
+            var isLeapYear = leapYear.IsLeapYear(2001);
+            Assert.That(isLeapYear, Is.EqualTo(false));
+        }
     }
 }
