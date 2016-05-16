@@ -25,6 +25,7 @@ namespace LeapYearKataTests
         public void IsLeapYearTest(int year, bool expected)
         {
             var leapYear = new LeapYear();
+
             var isLeapYear = leapYear.IsLeapYear(year);
 
             Assert.That(isLeapYear, Is.EqualTo(expected));
