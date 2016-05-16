@@ -24,3 +24,9 @@ describe("give 9 returns Fizz", function () {
         expect(response).toBe("Fizz");
     });
 });
+describe("give 5 returns Buzz", function () {
+    it("Should return Buzz when given 5", function () {
+        var response = fizzbuzz.returnValue(5);
+        expect(response).toBe("Buzz");
+    });
+});
