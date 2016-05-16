@@ -12,3 +12,9 @@ describe("give 2 returns 2", function(){
 		expect(response).toBe(2);
 	});
 });
+describe("give 3 returns Fizz", function(){
+	it("Should return Fizz when given 3", function(){
+		var response = fizzbuzz.returnValue(3);
+		expect(response).toBe("Fizz");
+	});
+});
