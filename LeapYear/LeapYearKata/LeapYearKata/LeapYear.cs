@@ -10,7 +10,7 @@ namespace LeapYearKata
     {
         public bool IsLeapYear(int year)
         {
-            if (year == 1996)
+            if (year % 4 == 0)
             {
                 return true;
             }
