@@ -21,6 +21,7 @@ namespace LeapYearKataTests
         [TestCase(2001, false)]
         [TestCase(1996, true)]
         [TestCase(1900, false)]
+        [TestCase(2000, true)]
         public void IsLeapYearTest(int year, bool expected)
         {
             var leapYear = new LeapYear();
