@@ -30,3 +30,9 @@ describe("give 5 returns Buzz", function () {
         expect(response).toBe("Buzz");
     });
 });
+describe("give 15 returns FizzBuzz", function () {
+    it("Should return FizzBuzz when given 15", function () {
+        var response = fizzbuzz.returnValue(15);
+        expect(response).toBe("FizzBuzz");
+    });
+});
