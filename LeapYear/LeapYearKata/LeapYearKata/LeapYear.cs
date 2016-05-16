@@ -15,7 +15,7 @@ namespace LeapYearKata
             return false;
         }
 
-        private static bool IsDivisibleBy(int year, int denominator)
+        private bool IsDivisibleBy(int year, int denominator)
         {
             return year % denominator == 0;
         }
