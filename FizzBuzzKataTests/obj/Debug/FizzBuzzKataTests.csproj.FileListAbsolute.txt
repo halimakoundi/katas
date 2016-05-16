@@ -1,0 +1,9 @@
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\bin\Debug\FizzBuzzKataTests.dll
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\bin\Debug\FizzBuzzKataTests.pdb
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\bin\Debug\FizzBuzzKata.dll
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\bin\Debug\FizzBuzzKata.pdb
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\obj\Debug\FizzBuzzKataTests.csprojResolveAssemblyReference.cache
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\obj\Debug\FizzBuzzKataTests.dll
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\obj\Debug\FizzBuzzKataTests.pdb
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\bin\Debug\nunit.framework.dll
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKataTests\bin\Debug\nunit.framework.xml

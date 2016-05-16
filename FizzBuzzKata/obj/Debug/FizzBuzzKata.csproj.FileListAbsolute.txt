@@ -1,0 +1,5 @@
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKata\bin\Debug\FizzBuzzKata.dll
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKata\bin\Debug\FizzBuzzKata.pdb
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKata\obj\Debug\FizzBuzzKata.csprojResolveAssemblyReference.cache
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKata\obj\Debug\FizzBuzzKata.dll
+C:\Users\Halima\Documents\Katas\FizzBuzzKata\FizzBuzzKata\obj\Debug\FizzBuzzKata.pdb
