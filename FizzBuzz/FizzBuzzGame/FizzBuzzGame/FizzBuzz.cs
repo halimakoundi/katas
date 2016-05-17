@@ -10,19 +10,29 @@ namespace FizzBuzzGame
     {
         public string ReturnValue(int value)
         {
-            if(value % 3 == 0 && value % 5 == 0)
+            if (IsFizz(value) && IsBuzz(value))
             {
                 return "FizzBuzz";
             }
-            if (value % 3 == 0)
+            if (IsFizz(value))
             {
                 return "Fizz";
             }
-            if (value % 5 == 0)
+            if (IsBuzz(value))
             {
                 return "Buzz";
             }
             return value.ToString();
+        }
+
+        private static bool IsBuzz(int value)
+        {
+            return value % 5 == 0;
+        }
+
+        private static bool IsFizz(int value)
+        {
+            return value % 3 == 0;
         }
     }
 }
