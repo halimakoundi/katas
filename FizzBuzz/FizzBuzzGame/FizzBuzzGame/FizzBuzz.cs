@@ -10,7 +10,7 @@ namespace FizzBuzzGame
     {
         public int ReturnValue(int value)
         {
-            return 1;
+            return value;
         }
     }
 }
