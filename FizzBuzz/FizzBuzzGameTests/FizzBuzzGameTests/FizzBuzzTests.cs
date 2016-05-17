@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using FizzBuzzGame;
+using NUnit.Framework;
 
 namespace FizzBuzzGameTests
 {
@@ -6,8 +7,11 @@ namespace FizzBuzzGameTests
     public class FizzBuzzTests
     {
         [Test]
-        public void TestMethod1()
+        public void GiveOneReturnsOne()
         {
+            var fizzbuzz = new FizzBuzz();
+            var returnedValue = fizzbuzz.ReturnValue(1);
+            Assert.That(returnedValue, Is.EqualTo(1));
         }
     }
 }

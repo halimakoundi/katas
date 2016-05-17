@@ -8,5 +8,9 @@ namespace FizzBuzzGame
 {
     public class FizzBuzz
     {
+        public int ReturnValue(int value)
+        {
+            return 1;
+        }
     }
 }
