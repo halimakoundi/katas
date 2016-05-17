@@ -20,6 +20,7 @@ namespace FizzBuzzGameTests
         [TestCase(3, "Fizz")]
         [TestCase(9, "Fizz")]
         [TestCase(5, "Buzz")]
+        [TestCase(15, "FizzBuzz")]
         public void GiveValueReturnsText(int value, string expected)
         {
             var fizzbuzz = new FizzBuzz();
