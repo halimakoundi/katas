@@ -15,20 +15,13 @@ namespace FizzBuzzGameTests
             Assert.That(returnedValue, Is.EqualTo(expected));
         }
 
-        [Test]
-        public void GiveThreeReturnsFizz()
+        [TestCase(3,"Fizz")]
+        [TestCase(9,"Fizz")]
+        public void GiveValueReturnsText(int value, string expected)
         {
             var fizzbuzz=new FizzBuzz();
-            var returnedValue=fizzbuzz.ReturnValue(3);
-            Assert.That(returnedValue, Is.EqualTo("Fizz"));
-        }
-
-        [Test]
-        public void GiveNineReturnsFizz()
-        {
-            var fizzbuzz=new FizzBuzz();
-            var returnedValue=fizzbuzz.ReturnValue(9);
-            Assert.That(returnedValue, Is.EqualTo("Fizz"));
+            var returnedValue=fizzbuzz.ReturnValue(value);
+            Assert.That(returnedValue, Is.EqualTo(expected));
         }
     }
 }
