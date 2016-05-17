@@ -8,9 +8,13 @@ namespace FizzBuzzGame
 {
     public class FizzBuzz
     {
-        public int ReturnValue(int value)
+        public string ReturnValue(int value)
         {
-            return value;
+            if (value == 3)
+            {
+                return "Fizz";
+            }
+            return value.ToString();
         }
     }
 }
