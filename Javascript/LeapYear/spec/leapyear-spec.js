@@ -18,3 +18,9 @@ describe("2001 is not a leap year", function() {
         expect(isLeapYear).toBe(false);
     });
 });
+describe("1996 is a leap year", function() {
+    it("Should return true when checking if 1996 is a leap year", function() {
+        var isLeapyear = leapyear.isLeapYear(1996);
+        expect(isLeapyear).toBe(true);
+    });
+});
