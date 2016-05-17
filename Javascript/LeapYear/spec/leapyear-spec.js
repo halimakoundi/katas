@@ -36,3 +36,9 @@ describe("1900 is not a leap year", function() {
         expect(isLeapYear).toBe(false);
     });
 });
+describe("2000 is a leap year", function() {
+    it("Should return true when checking if 2000 is a leap year", function() {
+        var isLeapYear = leapyear.isLeapYear(2000);
+        expect(isLeapYear).toBe(true);
+    });
+});
