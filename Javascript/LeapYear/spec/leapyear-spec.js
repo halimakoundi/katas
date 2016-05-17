@@ -20,13 +20,19 @@ describe("2001 is not a leap year", function() {
 });
 describe("1996 is a leap year", function() {
     it("Should return true when checking if 1996 is a leap year", function() {
-        var isLeapyear = leapyear.isLeapYear(1996);
-        expect(isLeapyear).toBe(true);
+        var isLeapYear = leapyear.isLeapYear(1996);
+        expect(isLeapYear).toBe(true);
     });
 });
 describe("1992 is a leap year", function() {
     it("Should return true when checking if 1992 is a leap year", function () {
         var isLeapYear = leapyear.isLeapYear(1992);
         expect(isLeapYear).toBe(true);
+    });
+});
+describe("1900 is not a leap year", function() {
+    it("Should return false when checking if 1900 is a leap year", function () {
+        var isLeapYear = leapyear.isLeapYear(1900);
+        expect(isLeapYear).toBe(false);
     });
 });
