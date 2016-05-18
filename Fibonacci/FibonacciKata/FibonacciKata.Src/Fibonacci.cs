@@ -12,7 +12,11 @@ namespace FibonacciKata.Src
             }
             if (sequenceLength == 2)
             {
-                return new List<int> { 0, 1 };
+                return new List<int> { 0, 1};
+            }
+            if (sequenceLength == 3)
+            {
+                return new List<int> {0, 1, 1};
             }
             return new List<int>();
         }

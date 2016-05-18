@@ -20,11 +20,12 @@ namespace FibonacciKata.Tests
     [TestFixture]
     public class FibonacciShould
     {
-        [TestCase(0, new int[] {})]
-        [TestCase(1, new [] {0})]
-        [TestCase(2, new [] {0, 1})]
+        [TestCase(0, new int[] { })]
+        [TestCase(1, new[] { 0 })]
+        [TestCase(2, new[] { 0, 1 })]
+        [TestCase(3, new[] { 0, 1, 1 })]
         public void return_fibonacci_sequence_of_given_length(
-            int sequenceLength, 
+            int sequenceLength,
             int[] expectedSequence)
         {
             var fibonacci = new Fibonacci();
