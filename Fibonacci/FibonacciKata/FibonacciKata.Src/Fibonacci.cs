@@ -6,6 +6,10 @@ namespace FibonacciKata.Src
     {
         public List<int> Generate(int sequenceLength)
         {
+            if (sequenceLength == 1)
+            {
+                return new List<int> { 0 };
+            }
             return new List<int>();
         }
     }
