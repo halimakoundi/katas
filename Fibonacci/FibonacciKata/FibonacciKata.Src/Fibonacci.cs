@@ -10,6 +10,10 @@ namespace FibonacciKata.Src
             {
                 return new List<int> { 0 };
             }
+            if (sequenceLength == 2)
+            {
+                return new List<int> { 0, 1 };
+            }
             return new List<int>();
         }
     }

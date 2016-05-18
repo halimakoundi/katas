@@ -39,5 +39,16 @@ namespace FibonacciKata.Tests
 
             Assert.That(sequence, Is.EqualTo(sequenceContainingJustAZero));
         }
+
+        [Test]
+        public void return_a_sequence_contatining_0_and_1_given_length_2()
+        {
+            var sequenceContainingZeroAndOne = new List<int> { 0, 1 };
+            var fibonacci = new Fibonacci();
+
+            var sequence = fibonacci.Generate(2);
+
+            Assert.That(sequence, Is.EqualTo(sequenceContainingZeroAndOne));
+        }
     }
 }
