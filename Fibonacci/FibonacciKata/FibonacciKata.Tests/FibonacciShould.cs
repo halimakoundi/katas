@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FibonacciKata.Src;
 using NUnit.Framework;
 
@@ -19,36 +20,18 @@ namespace FibonacciKata.Tests
     [TestFixture]
     public class FibonacciShould
     {
-        [Test]
-        public void return_an_empty_sequence_given_length_zero()
+        [TestCase(0, new int[] {})]
+        [TestCase(1, new [] {0})]
+        [TestCase(2, new [] {0, 1})]
+        public void return_fibonacci_sequence_of_given_length(
+            int sequenceLength, 
+            int[] expectedSequence)
         {
             var fibonacci = new Fibonacci();
 
-            var sequence = fibonacci.Generate(0);
+            var sequence = fibonacci.Generate(sequenceLength);
 
-            Assert.That(sequence, Is.Empty);
-        }
-
-        [Test]
-        public void return_a_sequence_containing_only_0_given_length_1()
-        {
-            var sequenceContainingJustAZero = new List<int> { 0 };
-            var fibonacci = new Fibonacci();
-
-            var sequence = fibonacci.Generate(1);
-
-            Assert.That(sequence, Is.EqualTo(sequenceContainingJustAZero));
-        }
-
-        [Test]
-        public void return_a_sequence_contatining_0_and_1_given_length_2()
-        {
-            var sequenceContainingZeroAndOne = new List<int> { 0, 1 };
-            var fibonacci = new Fibonacci();
-
-            var sequence = fibonacci.Generate(2);
-
-            Assert.That(sequence, Is.EqualTo(sequenceContainingZeroAndOne));
+            Assert.That(sequence, Is.EqualTo(expectedSequence.ToList()));
         }
     }
 }
