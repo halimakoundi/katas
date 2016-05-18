@@ -24,6 +24,7 @@ namespace FibonacciKata.Tests
         [TestCase(1, new[] { 0 })]
         [TestCase(2, new[] { 0, 1 })]
         [TestCase(3, new[] { 0, 1, 1 })]
+        [TestCase(4, new[] { 0, 1, 1, 2 })]
         public void return_fibonacci_sequence_of_given_length(
             int sequenceLength,
             int[] expectedSequence)

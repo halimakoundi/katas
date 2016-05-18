@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FibonacciKata.Src
 {
@@ -6,19 +7,22 @@ namespace FibonacciKata.Src
     {
         public List<int> Generate(int sequenceLength)
         {
+            var generatedSequence = new List<int>();
             if (sequenceLength == 1)
             {
-                return new List<int> { 0 };
+                generatedSequence.Add(0);
             }
             if (sequenceLength == 2)
             {
-                return new List<int> { 0, 1};
+                generatedSequence = Generate(1);
+                generatedSequence.Add(1);
             }
-            if (sequenceLength == 3)
+            if (sequenceLength > 2)
             {
-                return new List<int> {0, 1, 1};
+                generatedSequence = Generate(sequenceLength - 1);
+                generatedSequence.Add(generatedSequence[sequenceLength - 3] + generatedSequence[sequenceLength - 2]);
             }
-            return new List<int>();
+            return generatedSequence;
         }
     }
 }
