@@ -8,20 +8,11 @@ namespace FizzBuzzGameTests
     {
         [TestCase(1, "1")]
         [TestCase(2, "2")]
-        public void GiveValueReturnsValue(int value, string expected)
-        {
-            var fizzbuzz = new FizzBuzz();
-
-            var returnedValue = fizzbuzz.ReturnValue(value);
-
-            Assert.That(returnedValue, Is.EqualTo(expected));
-        }
-
         [TestCase(3, "Fizz")]
         [TestCase(9, "Fizz")]
         [TestCase(5, "Buzz")]
         [TestCase(15, "FizzBuzz")]
-        public void GiveValueReturnsText(int value, string expected)
+        public void GiveValueReturnsCorrectAnswer(int value, string expected)
         {
             var fizzbuzz = new FizzBuzz();
 
@@ -29,5 +20,6 @@ namespace FizzBuzzGameTests
 
             Assert.That(returnedValue, Is.EqualTo(expected));
         }
+
     }
 }
