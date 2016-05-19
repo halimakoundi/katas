@@ -20,7 +20,10 @@ namespace FibonacciKata.Src
             if (sequenceLength > 2)
             {
                 generatedSequence = Generate(sequenceLength - 1);
-                generatedSequence.Add(generatedSequence[sequenceLength - 3] + generatedSequence[sequenceLength - 2]);
+                var previousNumber = generatedSequence[sequenceLength - 3];
+                var previousNumber2 = generatedSequence[sequenceLength - 2];
+
+                generatedSequence.Add(previousNumber + previousNumber2);
             }
             return generatedSequence;
         }
