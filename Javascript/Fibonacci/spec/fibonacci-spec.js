@@ -14,18 +14,28 @@ describe("Returns a sequence", function () {
 
     it("Should return an empty sequence for length = 0",
         function () {
-            var fibonacciSequence = fibonacci.generateSequence(0);
+            generateSequence(0);
             expect(fibonacciSequence).toEqual([]);
         });
 
-    it("Should return an array containing 0 for length = 1", function() {
-        var fibonacciSequence = fibonacci.generateSequence(1);
+    it("Should return an array containing 0 for length = 1", function () {
+        generateSequence(1);
         expect(fibonacciSequence).toEqual([0]);
     });
 
-    it("Should return [0,1] for length = 2", function() {
-        var fibanacciSequence = fibonacci.generateSequence(2);
-        expect(fibanacciSequence).toEqual([0, 1]);
+    it("Should return [0,1] for length = 2", function () {
+        generateSequence(2);
+        expect(fibonacciSequence).toEqual([0, 1]);
+    });
+
+    it("Should return [0,1,1] for length = 3", function () {
+        generateSequence(3);
+        expect(fibonacciSequence).toEqual([0, 1, 1]);
     });
 
 });
+
+var fibonacciSequence;
+var generateSequence = function (length) {
+    fibonacciSequence = fibonacci.generateSequence(length);
+}
