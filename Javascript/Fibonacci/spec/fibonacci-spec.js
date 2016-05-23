@@ -18,4 +18,9 @@ describe("Returns a sequence", function () {
             expect(fibonacciSequence).toEqual([]);
         });
 
+    it("Should return an array containing 0 for length = 1", function() {
+        var fibonacciSequence = fibonacci.generateSequence(1);
+        expect(fibonacciSequence).toEqual([0]);
+    });
+
 });
