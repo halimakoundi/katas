@@ -23,4 +23,9 @@ describe("Returns a sequence", function () {
         expect(fibonacciSequence).toEqual([0]);
     });
 
+    it("Should return [0,1] for length = 2", function() {
+        var fibanacciSequence = fibonacci.generateSequence(2);
+        expect(fibanacciSequence).toEqual([0, 1]);
+    });
+
 });
