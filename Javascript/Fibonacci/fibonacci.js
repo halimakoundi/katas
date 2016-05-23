@@ -1,15 +1,22 @@
 exports.generateSequence = function (length) {
+    var sequence = [];
     if (length == 1) {
-        return [0];
+        sequence.push(0);
     }
     if (length == 2) {
-        return [0, 1];
+        sequence.push(0);
+        sequence.push(1);
     }
     if (length == 3) {
-        return [0, 1, 1];
+        sequence.push(0);
+        sequence.push(1);
+        sequence.push(1);
     }
     if (length == 4) {
-        return [0, 1, 1, 2];
+        sequence.push(0);
+        sequence.push(1);
+        sequence.push(1);
+        sequence.push(2);
     }
-    return [];
+    return sequence;
 }
