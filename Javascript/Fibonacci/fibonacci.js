@@ -7,16 +7,12 @@ exports.generateSequence = function (length) {
         sequence.push(0);
         sequence.push(1);
     }
-    if (length == 3) {
+    if (length > 2) {
         sequence.push(0);
         sequence.push(1);
-        sequence.push(1);
-    }
-    if (length == 4) {
-        sequence.push(0);
-        sequence.push(1);
-        sequence.push(1);
-        sequence.push(2);
+        for (i = 0; i < length - 2; i++) {
+            sequence.push(sequence[i] + sequence[i + 1]);
+        }
     }
     return sequence;
 }
