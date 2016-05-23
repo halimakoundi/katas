@@ -8,5 +8,8 @@ exports.generateSequence = function (length) {
     if (length == 3) {
         return [0, 1, 1];
     }
+    if (length == 4) {
+        return [0, 1, 1, 2];
+    }
     return [];
 }

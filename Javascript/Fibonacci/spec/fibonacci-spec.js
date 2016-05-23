@@ -33,6 +33,11 @@ describe("Returns a sequence", function () {
         expect(fibonacciSequence).toEqual([0, 1, 1]);
     });
 
+    it("Should return [0,1,1,2] for length = 4",
+        function () {
+            generateSequence(4);
+            expect(fibonacciSequence).toEqual([0, 1, 1, 2]);
+        });
 });
 
 var fibonacciSequence;
