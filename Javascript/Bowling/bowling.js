@@ -2,6 +2,7 @@ exports.calculateScore = function (game) {
     var score = 0;
     var frames = game.split("||")[0].split("|");
     var bonusBalls = game.split("||")[1];
+
     if (game == "9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||") {
         for (i = 0; i < frames.length; i++) {
             score += getFrameScore(frames[i]);
