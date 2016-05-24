@@ -26,3 +26,12 @@ describe("Ten spares combined with 5 pins hits on first ball game scores 150 poi
                 expect(score).toBe(150);
             });
     });
+
+describe("A combination of frames result should return the right number of points",
+    function() {
+        it("Should return 167 points for X|7/|9-|X|-8|8/|-6|X|X|X||81 game",
+            function() {
+                var score = bowling.calculateScore("X|7/|9-|X|-8|8/|-6|X|X|X||81");
+                expect(score).toBe(167);
+            });
+    });

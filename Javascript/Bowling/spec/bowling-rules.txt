@@ -56,5 +56,16 @@ ball == 10 + 5 == 15
 Total score == 10 frames x 15 == 150
 
 X|7/|9-|X|-8|8/|-6|X|X|X||81
+Frame1 : X|7/ = 27 -> 20
+Frame2 : 7/|9 = 19 -> 39
+Frame3 : 9- = 9 -> 48
+Frame4 : X|-8 = 18 -> 66
+Frame5 : -8 = 8 -> 74
+Frame6 : 8/|- = 10 -> 84
+Frame7 : -6 = 6 -> 90
+Frame8 : X|X|X = 30 -> 120
+Frame9 : X|X||8 = 28 -> 148
+Frame10 : X||81 = 19 -> 167
+
 Total score == 167
 */
