@@ -17,3 +17,10 @@ describe("Nine pins hit of all frames scores 90 points",
                 expect(score).toBe(90);
             });
     });
+
+describe("Ten spares combined with 5 pins hits on first ball game scores 150 points", function() {
+    it("Should return 150 for 5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5 game", function() {
+        var score = bowling.calculateScore("5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5");
+        expect(score).toBe(150);
+    })
+});
