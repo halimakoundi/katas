@@ -4,15 +4,20 @@ exports.calculateScore = function (game) {
     var bonusBalls = game.split("||")[1];
     for (i = 0; i < frames.length; i++) {
         var frameScore = getFrameScore(frames[i]);
-        if (frameScore == "/") {
-            score += 10 + ((i < frames.length - 1) ? getNextBallScore(frames[i + 1])
-                    : parseInt(bonusBalls[0]));
-        } else if (frameScore == "X") {
-            score += 10 + ((i < frames.length - 2) ? (getNextBallScore(frames[i + 1]) + getNextBallScore(frames[i + 2]))
+        switch (frameScore) {
+            case "/":
+                score += 10 + ((i < frames.length - 1) ? getNextBallScore(frames[i + 1])
+                        : parseInt(bonusBalls[0]));
+                break;
+            case "X":
+                score += 10 + ((i < frames.length - 2) ? (getNextBallScore(frames[i + 1]) + getNextBallScore(frames[i + 2]))
                 : (((i < frames.length - 1) ? (getNextBallScore(frames[i + 1]) + getNextBallScore(bonusBalls[0]))
                     : (getNextBallScore(bonusBalls[0]) + getNextBallScore(bonusBalls[1])))
                     ));
-        } else { score += parseInt(frameScore); }
+                break;
+            default:
+                score += parseInt(frameScore);
+        }
     }
     return score;
 };
