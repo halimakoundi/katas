@@ -7,8 +7,8 @@ String.prototype.toRolls = function () {
     var obj = [];
     this.split('|').forEach(function (frame) {
         obj.push({
-            "firstRollScore": parseInt(frame[0]),
-            "secondRollScore": parseInt(frame[1])
+            "firstRollScore": frame[0] == '-' ? 0 : parseInt(frame[0]),
+            "secondRollScore": frame[1] == '/' ? 11 : (frame[1] == '-' ? 0 : parseInt(frame[1]))
         });
     });
     return obj;
