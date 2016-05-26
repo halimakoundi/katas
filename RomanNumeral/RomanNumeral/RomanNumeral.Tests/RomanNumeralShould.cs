@@ -12,8 +12,11 @@ namespace RomanNumeral.Tests
         [TestCase(4,"IV")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
-            var romanNumeral = new RomanNumeralConverter();
-            Assert.That(romanNumeral.Convert(number), Is.EqualTo(expectedNumeral));
+            var romanNumeralConverter = new RomanNumeralConverter();
+
+            var romanNumeral = romanNumeralConverter.Convert(number);
+
+            Assert.That(romanNumeral, Is.EqualTo(expectedNumeral));
         }
     }
 }
