@@ -15,6 +15,7 @@ namespace RomanNumeral.Tests
         [TestCase(7, "VII")]
         [TestCase(8, "VIII")]
         [TestCase(9, "IX")]
+        [TestCase(10, "X")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
             var romanNumeralConverter = new RomanNumeralConverter();
