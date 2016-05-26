@@ -8,10 +8,7 @@ namespace RomanNumeral.Src
         {
             {1, "I" },
             {4, "IV" },
-            {5, "V" },
-            {6, "VI" },
-            {7, "VII" },
-            {8, "VIII" }
+            {5, "V" }
         };
 
         public string Convert(int number)
@@ -19,6 +16,11 @@ namespace RomanNumeral.Src
             if (_results.ContainsKey(number))
             {
                 return _results[number];
+            }
+            if (number > 5)
+            {
+                const string result = "V";
+                return result + Convert(number - 5);
             }
             return _results[1] + Convert(number - 1);
         }
