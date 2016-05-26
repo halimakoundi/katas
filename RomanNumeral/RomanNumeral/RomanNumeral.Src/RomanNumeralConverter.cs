@@ -1,12 +1,22 @@
-﻿namespace RomanNumeral.Src
+﻿using System.Collections.Generic;
+
+namespace RomanNumeral.Src
 {
     public class RomanNumeralConverter
     {
+        private readonly Dictionary<int, string> _results = new Dictionary<int, string>
+        {
+            {1, "I" },
+            {4, "IV" }
+        };
+
         public string Convert(int number)
         {
-            var numeral = new string[] { "I", "II", "III", "IV"};
-            
-            return numeral[number - 1];
+            if (_results.ContainsKey(number))
+            {
+                return _results[number];
+            }
+            return _results[1] + Convert(number - 1);
         }
     }
 }
