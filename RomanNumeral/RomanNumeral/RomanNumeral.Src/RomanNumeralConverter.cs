@@ -4,7 +4,7 @@
     {
         public string Convert(int number)
         {
-            var numeral = new string[] { "I", "II", "III"};
+            var numeral = new string[] { "I", "II", "III", "IV"};
             
             return numeral[number - 1];
         }
