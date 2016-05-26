@@ -4,38 +4,33 @@ namespace RomanNumeral.Src
 {
     public class RomanNumeralConverter
     {
-        private readonly Dictionary<int, string> _results = new Dictionary<int, string>
+        private readonly IDictionary<int, string> _mappings = new Dictionary<int, string>
         {
-            {1, "I" },
-            {4, "IV" },
-            {5, "V" },
-            {9, "IX" },
+            {90, "XC" },
+            {50, "L" },
+            {40, "XL" },
             {10, "X" },
-            {40, "XL" }
+            {9, "IX" },
+            {5, "V" },
+            {4, "IV" },
+            {1, "I" }
         };
 
         public string Convert(int number)
         {
-            if (_results.ContainsKey(number))
+            var result = string.Empty;
+            var mappingEnumerator = _mappings.GetEnumerator();
+
+            while (mappingEnumerator.MoveNext())
             {
-                return _results[number];
+                var mapping = mappingEnumerator.Current;
+                while (number >= mapping.Key)
+                {
+                    result += mapping.Value;
+                    number -= mapping.Key;
+                }
             }
-            if (number > 40)
-            {
-                var result  = "XL";
-                return result + Convert(number - 40);
-            }
-            if (number > 10)
-            {
-                var result = "X";
-                return result + Convert(number - 10);
-            }
-            if (number > 5)
-            {
-                const string result = "V";
-                return result + Convert(number - 5);
-            }
-            return _results[1] + Convert(number - 1);
+            return result;
         }
     }
 }

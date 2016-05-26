@@ -20,6 +20,9 @@ namespace RomanNumeral.Tests
         [TestCase(40, "XL")]
         [TestCase(41, "XLI")]
         [TestCase(44, "XLIV")]
+        [TestCase(50, "L")]
+        [TestCase(60, "LX")]
+        [TestCase(90, "XC")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
             var romanNumeralConverter = new RomanNumeralConverter();
