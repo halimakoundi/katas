@@ -19,6 +19,11 @@ namespace RomanNumeral.Src
             {
                 return _results[number];
             }
+            if (number > 10)
+            {
+                var result = "X";
+                return result + Convert(number - 10);
+            }
             if (number > 5)
             {
                 const string result = "V";
