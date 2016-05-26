@@ -4,7 +4,7 @@ namespace RomanNumeral.Src
 {
     public class RomanNumeralConverter
     {
-        private readonly IDictionary<int, string> _mappings = new Dictionary<int, string>
+        private readonly IDictionary<int, string> _arabicsToRomans = new Dictionary<int, string>
         {
             {1000, "M" },
             {900, "CM" },
@@ -23,19 +23,20 @@ namespace RomanNumeral.Src
 
         public string Convert(int number)
         {
-            var result = string.Empty;
-            var mappingEnumerator = _mappings.GetEnumerator();
+            var romanNumeral = string.Empty;
+            var arabicToRomansEnumerator = _arabicsToRomans.GetEnumerator();
 
-            while (mappingEnumerator.MoveNext())
+            while (arabicToRomansEnumerator.MoveNext())
             {
-                var mapping = mappingEnumerator.Current;
-                while (number >= mapping.Key)
+                var arabicToRoman = arabicToRomansEnumerator.Current;
+                var arabicNumeral = arabicToRoman.Key;
+                while (number >= arabicNumeral)
                 {
-                    result += mapping.Value;
-                    number -= mapping.Key;
+                    romanNumeral += arabicToRoman.Value;
+                    number -= arabicToRoman.Key;
                 }
             }
-            return result;
+            return romanNumeral;
         }
     }
 }
