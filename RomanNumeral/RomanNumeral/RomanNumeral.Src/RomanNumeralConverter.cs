@@ -20,6 +20,11 @@ namespace RomanNumeral.Src
             {
                 return _results[number];
             }
+            if (number > 40)
+            {
+                var result  = "XL";
+                return result + Convert(number - 40);
+            }
             if (number > 10)
             {
                 var result = "X";
