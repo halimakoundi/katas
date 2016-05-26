@@ -8,6 +8,7 @@ namespace RomanNumeral.Tests
     {
         [TestCase(1,"I")]
         [TestCase(2,"II")]
+        [TestCase(3,"III")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
             var romanNumeral = new RomanNumeralConverter();
