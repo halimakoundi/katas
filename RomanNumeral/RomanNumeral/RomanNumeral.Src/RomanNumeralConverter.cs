@@ -4,7 +4,12 @@
     {
         public string Convert(int number)
         {
-            return "I";
+            var numeral = "I";
+            if (number > 1)
+            {
+                numeral = "II";
+            }
+            return numeral;
         }
     }
 }

@@ -7,6 +7,7 @@ namespace RomanNumeral.Tests
     public class RomanNumeralShould
     {
         [TestCase(1,"I")]
+        [TestCase(2,"II")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
             var romanNumeral = new RomanNumeralConverter();
