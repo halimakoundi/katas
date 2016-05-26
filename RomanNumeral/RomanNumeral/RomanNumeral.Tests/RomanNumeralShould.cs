@@ -10,6 +10,10 @@ namespace RomanNumeral.Tests
         [TestCase(2,"II")]
         [TestCase(3,"III")]
         [TestCase(4,"IV")]
+        [TestCase(5,"V")]
+        [TestCase(6,"VI")]
+        [TestCase(7, "VII")]
+        [TestCase(8, "VIII")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
             var romanNumeralConverter = new RomanNumeralConverter();
