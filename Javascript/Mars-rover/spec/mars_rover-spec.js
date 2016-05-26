@@ -15,4 +15,12 @@ describe("The rover stays at the same position after an emtpy command", function
 
             expect(returnedPosition).toBe("0,1,N");
         });
+
+    it("Should return (0,2,N) when asked to move twice ",
+        function() {
+            var returnedPosition = rover.move("MM");
+
+            expect(returnedPosition).toBe("0,2,N");
+        });
+
 });
