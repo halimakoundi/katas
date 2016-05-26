@@ -23,6 +23,15 @@ namespace RomanNumeral.Tests
         [TestCase(50, "L")]
         [TestCase(60, "LX")]
         [TestCase(90, "XC")]
+        [TestCase(100, "C")]
+        [TestCase(200, "CC")]
+        [TestCase(400, "CD")]
+        [TestCase(500, "D")]
+        [TestCase(900, "CM")]
+        [TestCase(1000, "M")]
+        [TestCase(846, "DCCCXLVI")]
+        [TestCase(1999, "MCMXCIX")]
+        [TestCase(2008, "MMVIII")]
         public void convert_number_to_roman(int number, string expectedNumeral)
         {
             var romanNumeralConverter = new RomanNumeralConverter();
