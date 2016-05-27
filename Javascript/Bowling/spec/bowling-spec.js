@@ -35,12 +35,19 @@ describe("Game with simple scores",
 
                 expect(score).toBe(20);
             });
-
+        
         it("Should return 24 for a game of one pin hit rolls, and one roll of 5 pins hit",
             function () {
                 var score = bowling.calculateScore("11|51|11|11|11|11|11|11|11|11||");
 
                 expect(score).toBe(24);
+            });
+
+        it("Should return 90 for the following game 9-|9-|9-|9-|9-|9-|9-|9-|9-|9-|| ",
+            function () {
+                var score = bowling.calculateScore("9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||");
+
+                expect(score).toBe(90);
             });
     });
 
@@ -105,5 +112,16 @@ describe("Games with strikes",
                 var score = bowling.calculateScore("X|11|X|X|--|--|--|--|--|--||");
 
                 expect(score).toBe(44);
+            });
+    });
+
+describe("Games with bonus rolls",
+    function() {
+
+        it("Should return a score of 13 for a spare on the last frame and 3 pin hit bonus roll ",
+            function() {
+                var score = bowling.calculateScore("--|--|--|--|--|--|--|--|--|-/||3");
+
+                expect(score).toBe(13);
             });
     });

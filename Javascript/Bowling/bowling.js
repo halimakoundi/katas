@@ -9,8 +9,14 @@ exports.calculateScore = function (game) {
 
         frameScore = firstRollScore + secondRollScore;
         if (frameScore == 10) {
-            var nextFrame = frames[currentFrameIndex + 1];
-            var nextFrameFirstRollScore = rollScore(nextFrame, 0);
+            var nextFrameFirstRollScore = 0;
+            var isLastFrame = currentFrameIndex == (frames.length - 1);
+            if (isLastFrame) {
+                nextFrameFirstRollScore = rollScore(bonusRolls, 0);
+            } else {
+                var nextFrame = frames[currentFrameIndex + 1];
+                nextFrameFirstRollScore = rollScore(nextFrame, 0);
+            }
             frameScore += nextFrameFirstRollScore;
             if (secondRollScore == 0) {
                 var nextFrameSecondRollScore = rollScore(nextFrame, 1);
