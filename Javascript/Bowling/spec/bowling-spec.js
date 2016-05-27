@@ -93,4 +93,10 @@ describe("Games with strikes",
                 expect(score).toBe(12);
             });
 
+        it("Should return a score of 14 for the following game X|11|--|--|--|--|--|--|--|--|| ",
+            function () {
+                var score = bowling.calculateScore("X|11|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(14);
+            });
     });

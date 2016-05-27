@@ -12,6 +12,10 @@ exports.calculateScore = function (game) {
             var nextFrame = frames[currentFrameIndex + 1];
             var nextFrameFirstRollScore = rollScore(nextFrame, 0);
             frameScore += nextFrameFirstRollScore;
+            if (secondRollScore == 0) {
+                var nextFrameSecondRollScore = rollScore(nextFrame, 1);
+                frameScore += nextFrameSecondRollScore;
+            }
         }
         score += frameScore;
     });
