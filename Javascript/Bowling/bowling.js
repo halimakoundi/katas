@@ -8,6 +8,7 @@ exports.calculateScore = function (game) {
     frames = mainGame.split("|");
     frames.forEach(function (frame, currentFrameIndex) {
         score += calculateFrameScore(frame, currentFrameIndex);
+        console.log('score', score);
     });
     return score;
 };
@@ -27,7 +28,7 @@ var calculateFrameScore = function (frameResults, currentFrameIndex) {
             firstNextRollScore = nextFrame.firstRollScore;
 
             if (nextFrame.isStrike()) {
-                var isNotOneFrameBeforeLast = currentFrameIndex + 2 < frames.length - 1;
+                var isNotOneFrameBeforeLast = currentFrameIndex + 2 < frames.length;
                 if (isNotOneFrameBeforeLast) {
                     var secondNextFrame = frames[currentFrameIndex + 2];
                     var secondNextFrame1stRollScore = rollScore(secondNextFrame, 0)

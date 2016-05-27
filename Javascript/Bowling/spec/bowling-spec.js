@@ -175,4 +175,10 @@ describe("Games with bonus rolls",
                 expect(score).toBe(300);
             });
 
+        it("Should return a score of 167 for X|7/|9-|X|-8|8/|-6|X|X|X||81 game ",
+            function () {
+                var score = bowling.calculateScore("X|7/|9-|X|-8|8/|-6|X|X|X||81");
+
+                expect(score).toBe(167);
+            });
     });
