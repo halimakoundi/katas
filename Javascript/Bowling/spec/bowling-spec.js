@@ -43,3 +43,14 @@ describe("Game with simple scores",
                 expect(score).toBe(24);
             });
     });
+
+describe("Games with spares",
+    function() {
+
+        it("Should return 10 for a game with one spare and all gutter games",
+            function() {
+                var score = bowling.calculateScore("-/|--|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(10);
+            });
+    });

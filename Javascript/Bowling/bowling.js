@@ -17,5 +17,8 @@ var rollScore = function (frameRoll) {
     if (frameRoll == "-") {
         return 0;
     }
+    if (frameRoll == "/") {
+        return 10;
+    }
     return parseInt(frameRoll);
 }
