@@ -3,11 +3,16 @@ exports.calculateScore = function (game) {
     var mainGame = game.split("||")[0];
     var bonusRolls = game.split("||")[1];
     var frames = mainGame.split("|");
-    frames.forEach(function (frame) {
+    frames.forEach(function (frame, currentFrameIndex) {
         var firstRollScore = rollScore(frame, 0);
         var secondRollScore = rollScore(frame, 1);
 
         frameScore = firstRollScore + secondRollScore;
+        if (frameScore == 10) {
+            var nextFrame = frames[currentFrameIndex + 1];
+            var nextFrameFirstRollScore = rollScore(nextFrame, 0);
+            frameScore += nextFrameFirstRollScore;
+        }
         score += frameScore;
     });
     return score;

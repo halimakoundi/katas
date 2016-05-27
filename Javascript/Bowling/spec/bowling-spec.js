@@ -61,4 +61,17 @@ describe("Games with spares",
                 expect(score).toBe(10);
             });
 
+        it("Should return 12 for a game with 1st roll hit one, then spare, then hit one, then all gutter game",
+            function () {
+                var score = bowling.calculateScore("1/|1-|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(12);
+            });
+
+        it("Should return 141 for the following game 5/|5/|5/|5/|5/|5/|5/|5/|5/|51|| ",
+            function() {
+                var score = bowling.calculateScore("5/|5/|5/|5/|5/|5/|5/|5/|5/|51||");
+
+                expect(score).toBe(141);
+            });
     });
