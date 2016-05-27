@@ -28,4 +28,10 @@ describe("Game with simple scores",
 
                 expect(score).toBe(2);
             });
+
+        it("Should return 20 for a game of one pin hit rolls", function() {
+            var score = bowling.calculateScore("11|11|11|11|11|11|11|11|11|11||");
+
+            expect(score).toBe(20);
+        })
     });
