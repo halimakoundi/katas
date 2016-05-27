@@ -21,4 +21,11 @@ describe("Game with simple scores",
 
                 expect(score).toBe(1);
             });
+
+        it("Should return score of 2 for two one pin hit rolls",
+            function() {
+                var score = bowling.calculateScore("11|--|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(2);
+            });
     });
