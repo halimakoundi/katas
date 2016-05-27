@@ -27,11 +27,13 @@ var calculateFrameScore = function (frameResults, currentFrameIndex) {
             firstNextRollScore = nextFrame.firstRollScore;
 
             if (nextFrame.isStrike()) {
-                var isOneFrameBeforeLast = currentFrameIndex + 2 < frames.length - 1;
-                if (isOneFrameBeforeLast) {
+                var isNotOneFrameBeforeLast = currentFrameIndex + 2 < frames.length - 1;
+                if (isNotOneFrameBeforeLast) {
                     var secondNextFrame = frames[currentFrameIndex + 2];
                     var secondNextFrame1stRollScore = rollScore(secondNextFrame, 0)
                     secondNextRollScore = secondNextFrame1stRollScore;
+                } else {
+                    secondNextRollScore = rollScore(bonusRolls, 0);
                 }
             } else {
                 secondNextRollScore = nextFrame.secondRollScore;

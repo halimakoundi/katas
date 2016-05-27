@@ -147,11 +147,11 @@ describe("Games with bonus rolls",
                 expect(score).toBe(15);
             });
 
-        it("Should return a score of 35 for --|--|--|--|--|--|--|--|X|X||32 game ",
+        it("Should return a score of 38 for --|--|--|--|--|--|--|--|X|X||32 game ",
             function () {
                 var score = bowling.calculateScore("--|--|--|--|--|--|--|--|X|X||32");
 
-                expect(score).toBe(35);
+                expect(score).toBe(38);
             });
 
         it("Should return a score of 30 for --|--|--|--|--|--|--|--|--|X||XX game ",
@@ -168,5 +168,11 @@ describe("Games with bonus rolls",
                 expect(score).toBe(150);
             });
 
+        it("Should return a score of 300 for X|X|X|X|X|X|X|X|X|X||XX game ",
+            function () {
+                var score = bowling.calculateScore("X|X|X|X|X|X|X|X|X|X||XX");
+
+                expect(score).toBe(300);
+            });
 
     });
