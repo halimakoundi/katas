@@ -12,34 +12,58 @@ exports.calculateScore = function (game) {
     return score;
 };
 
-var calculateFrameScore = function (frame, currentFrameIndex) {
-    var firstRollScore = rollScore(frame, 0);
-    var secondRollScore = rollScore(frame, 1);
-
-    frameScore = firstRollScore + secondRollScore;
-    if (frameScore == 10) {
+var calculateFrameScore = function (frameResults, currentFrameIndex) {
+    var frame = new Frame(frameResults[0], frameResults[1], currentFrameIndex);
+    
+    if (frame.score == 10) {
         var firstNextRollScore = 0;
-        var nextFrameSecondRollScore = 0;
-        var isLastFrame = currentFrameIndex == (frames.length - 1);
-        if (isLastFrame) {
+        var secondNextRollScore = 0;
+
+        if (frame.isLastFrame(frames.length)) {
             firstNextRollScore = rollScore(bonusRolls, 0);
-            nextFrameSecondRollScore = rollScore(bonusRolls, 1);
+            secondNextRollScore = rollScore(bonusRolls, 1);
         } else {
-            var nextFrame = frames[currentFrameIndex + 1];
-            firstNextRollScore = rollScore(nextFrame, 0);
-            nextFrameSecondRollScore = rollScore(nextFrame, 1);
+            var nextFrame = new Frame(frames[currentFrameIndex + 1][0], frames[currentFrameIndex + 1][1], currentFrameIndex + 1);
+            firstNextRollScore = nextFrame.firstRollScore;
+
+            if (nextFrame.isStrike()) {
+                var isOneFrameBeforeLast = currentFrameIndex + 2 < frames.length - 1;
+                if (isOneFrameBeforeLast) {
+                    var secondNextFrame = frames[currentFrameIndex + 2];
+                    var secondNextFrame1stRollScore = rollScore(secondNextFrame, 0)
+                    secondNextRollScore = secondNextFrame1stRollScore;
+                }
+            } else {
+                secondNextRollScore = nextFrame.secondRollScore;
+            }
         }
-        frameScore += firstNextRollScore;
-        var frameIsStrike = secondRollScore == 0;
-        if (frameIsStrike) {
-            frameScore += nextFrameSecondRollScore;
+        frame.score += firstNextRollScore;
+        if (frame.isStrike()) {
+            frame.score += secondNextRollScore;
         }
     }
-    return frameScore;
+    return frame.score;
 }
 
-var rollScore = function (frame, rollIndex) {
-    rollResult = frame[rollIndex];
+var Frame = function (firstRollResult, secondRollResult, frameIndex) {
+    this.rolls = [firstRollResult, secondRollResult];
+    this.index = frameIndex;
+    this.firstRollScore = rollScore(this.rolls, 0);
+    this.secondRollScore = rollScore(this.rolls, 1);
+    this.score = (this.firstRollScore + this.secondRollScore);
+
+    this.isLastFrame = function(gameLength) {
+        return this.index == gameLength - 1;
+    };
+
+    this.isStrike = function() {
+        return (this.firstRollScore == 10);
+    }
+}
+
+var rollScore = function (rolls, rollIndex) {
+    rollResult = rolls[rollIndex];
+
     if (rollResult == "X") {
         return 10;
     }
@@ -47,7 +71,7 @@ var rollScore = function (frame, rollIndex) {
         return 0;
     }
     if (rollResult == "/") {
-        var previousRollScore = rollScore(frame, rollIndex - 1);
+        var previousRollScore = rollScore(rolls, rollIndex - 1);
         return 10 - previousRollScore;
     }
     return parseInt(rollResult);

@@ -113,6 +113,21 @@ describe("Games with strikes",
 
                 expect(score).toBe(44);
             });
+
+        it("Should return a score of 33 for the following game X|X|1-|--|--|--|--|--|--|--|| ",
+            function () {
+                var score = bowling.calculateScore("X|X|1-|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(33);
+            });
+
+        it("Should return a score of 60 for the following game X|X|X|--|--|--|--|--|--|--|| ",
+            function () {
+                var score = bowling.calculateScore("X|X|X|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(60);
+            });
+
     });
 
 describe("Games with bonus rolls",
@@ -131,4 +146,27 @@ describe("Games with bonus rolls",
 
                 expect(score).toBe(15);
             });
+
+        it("Should return a score of 35 for --|--|--|--|--|--|--|--|X|X||32 game ",
+            function () {
+                var score = bowling.calculateScore("--|--|--|--|--|--|--|--|X|X||32");
+
+                expect(score).toBe(35);
+            });
+
+        it("Should return a score of 30 for --|--|--|--|--|--|--|--|--|X||XX game ",
+            function () {
+                var score = bowling.calculateScore("--|--|--|--|--|--|--|--|--|X||XX");
+
+                expect(score).toBe(30);
+            });
+
+        it("Should return a score of 150 for 5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5 game ",
+            function () {
+                var score = bowling.calculateScore("5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5");
+
+                expect(score).toBe(150);
+            });
+
+
     });
