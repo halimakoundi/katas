@@ -8,7 +8,6 @@ exports.calculateScore = function (game) {
     frames = mainGame.split("|");
     frames.forEach(function (frame, currentFrameIndex) {
         score += calculateFrameScore(frame, currentFrameIndex);
-        console.log('score', score);
     });
     return score;
 };
