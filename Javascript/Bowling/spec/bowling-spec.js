@@ -29,9 +29,17 @@ describe("Game with simple scores",
                 expect(score).toBe(2);
             });
 
-        it("Should return 20 for a game of one pin hit rolls", function() {
-            var score = bowling.calculateScore("11|11|11|11|11|11|11|11|11|11||");
+        it("Should return 20 for a game of one pin hit rolls",
+            function() {
+                var score = bowling.calculateScore("11|11|11|11|11|11|11|11|11|11||");
 
-            expect(score).toBe(20);
-        })
+                expect(score).toBe(20);
+            });
+
+        it("Should return 24 for a game of one pin hit rolls, and one roll of 5 pins hit",
+            function () {
+                var score = bowling.calculateScore("11|51|11|11|11|11|11|11|11|11||");
+
+                expect(score).toBe(24);
+            });
     });
