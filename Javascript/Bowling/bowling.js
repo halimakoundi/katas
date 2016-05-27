@@ -20,7 +20,10 @@ exports.calculateScore = function (game) {
 
 var rollScore = function (frame, rollIndex) {
     rollResult = frame[rollIndex];
-    if (rollResult == "-") {
+    if (rollResult == "X") {
+        return 10;
+    }
+    if (rollResult == "-" || !rollResult) {
         return 0;
     }
     if (rollResult == "/") {

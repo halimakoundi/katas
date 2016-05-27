@@ -75,3 +75,14 @@ describe("Games with spares",
                 expect(score).toBe(141);
             });
     });
+
+describe("Games with strikes",
+    function() {
+
+        it("Should return a score of 10 for one strike and all gutter game",
+            function() {
+                var score = bowling.calculateScore("X|--|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(10);
+            });
+    });
