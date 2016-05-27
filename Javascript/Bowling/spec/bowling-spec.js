@@ -85,4 +85,12 @@ describe("Games with strikes",
 
                 expect(score).toBe(10);
             });
+
+        it("Should return a score of 12 for one strike and a following one pin hit then all gutter game",
+            function () {
+                var score = bowling.calculateScore("X|1-|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(12);
+            });
+
     });
