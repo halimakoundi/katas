@@ -1,17 +1,18 @@
 var frames = [];
+var bonusRolls = [];
 
 exports.calculateScore = function (game) {
     var score = 0;
     var mainGame = game.split("||")[0];
-    var bonusRolls = game.split("||")[1];
+    bonusRolls = game.split("||")[1];
     frames = mainGame.split("|");
     frames.forEach(function (frame, currentFrameIndex) {
-        score += frameScore(frame, currentFrameIndex);
+        score += calculateFrameScore(frame, currentFrameIndex);
     });
     return score;
 };
 
-var frameScore = function (frame, currentFrameIndex) {
+var calculateFrameScore = function (frame, currentFrameIndex) {
     var firstRollScore = rollScore(frame, 0);
     var secondRollScore = rollScore(frame, 1);
 
@@ -31,6 +32,7 @@ var frameScore = function (frame, currentFrameIndex) {
             frameScore += nextFrameSecondRollScore;
         }
     }
+    return frameScore;
 }
 
 var rollScore = function (frame, rollIndex) {
