@@ -18,17 +18,20 @@ var calculateFrameScore = function (frame, currentFrameIndex) {
 
     frameScore = firstRollScore + secondRollScore;
     if (frameScore == 10) {
-        var nextFrameFirstRollScore = 0;
+        var firstNextRollScore = 0;
+        var nextFrameSecondRollScore = 0;
         var isLastFrame = currentFrameIndex == (frames.length - 1);
         if (isLastFrame) {
-            nextFrameFirstRollScore = rollScore(bonusRolls, 0);
+            firstNextRollScore = rollScore(bonusRolls, 0);
+            nextFrameSecondRollScore = rollScore(bonusRolls, 1);
         } else {
             var nextFrame = frames[currentFrameIndex + 1];
-            nextFrameFirstRollScore = rollScore(nextFrame, 0);
+            firstNextRollScore = rollScore(nextFrame, 0);
+            nextFrameSecondRollScore = rollScore(nextFrame, 1);
         }
-        frameScore += nextFrameFirstRollScore;
-        if (secondRollScore == 0) {
-            var nextFrameSecondRollScore = rollScore(nextFrame, 1);
+        frameScore += firstNextRollScore;
+        var frameIsStrike = secondRollScore == 0;
+        if (frameIsStrike) {
             frameScore += nextFrameSecondRollScore;
         }
     }

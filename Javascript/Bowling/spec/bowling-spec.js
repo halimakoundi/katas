@@ -124,4 +124,11 @@ describe("Games with bonus rolls",
 
                 expect(score).toBe(13);
             });
+
+        it("Should return a score of 15 for a strike on the last frame and 3 and 2 pins hit bonus rolls ",
+            function () {
+                var score = bowling.calculateScore("--|--|--|--|--|--|--|--|--|X||32");
+
+                expect(score).toBe(15);
+            });
     });
