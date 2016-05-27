@@ -4,8 +4,8 @@ exports.calculateScore = function (game) {
     var bonusRolls = game.split("||")[1];
     var frames = mainGame.split("|");
     frames.forEach(function (frame) {
-        var firstRollScore = rollScore(frame[0]);
-        var secondRollScore = rollScore(frame[1]);
+        var firstRollScore = rollScore(frame, 0);
+        var secondRollScore = rollScore(frame, 1);
 
         frameScore = firstRollScore + secondRollScore;
         score += frameScore;
@@ -13,12 +13,14 @@ exports.calculateScore = function (game) {
     return score;
 };
 
-var rollScore = function (frameRoll) {
-    if (frameRoll == "-") {
+var rollScore = function (frame, rollIndex) {
+    rollResult = frame[rollIndex];
+    if (rollResult == "-") {
         return 0;
     }
-    if (frameRoll == "/") {
-        return 10;
+    if (rollResult == "/") {
+        var previousRollScore = rollScore(frame, rollIndex - 1);
+        return 10 - previousRollScore;
     }
-    return parseInt(frameRoll);
+    return parseInt(rollResult);
 }

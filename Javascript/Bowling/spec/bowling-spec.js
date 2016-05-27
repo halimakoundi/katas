@@ -53,4 +53,12 @@ describe("Games with spares",
 
                 expect(score).toBe(10);
             });
+
+        it("Shoud return 10 for a game with first roll one, second roll spare then all gutter game",
+            function () {
+                var score = bowling.calculateScore("1/|--|--|--|--|--|--|--|--|--||");
+
+                expect(score).toBe(10);
+            });
+
     });
