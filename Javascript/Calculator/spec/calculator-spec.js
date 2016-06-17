@@ -22,4 +22,11 @@ describe("String calculator ",
 
                 expect(sum).toBe(1);
             });
+
+        it("Should return the sum of the two string numbers passed to it",
+            function () {
+                var sum = calculator.add("1,2");
+
+                expect(sum).toBe(3);
+            });
     });
