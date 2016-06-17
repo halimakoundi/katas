@@ -15,4 +15,11 @@ describe("String calculator ",
 
                 expect(sum).toBe(0);
             });
+
+        it("Should return the int equivalent of the one string number passed to it",
+            function () {
+                var sum = calculator.add("1");
+
+                expect(sum).toBe(1);
+            });
     });

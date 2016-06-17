@@ -1,3 +1,7 @@
 exports.add = function (addendum) {
-    return 0;
+    var result = 0;
+    if (addendum) {
+        result = parseInt(addendum);
+    }
+    return result;
 }
