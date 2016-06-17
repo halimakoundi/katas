@@ -33,11 +33,17 @@ describe("String calculator ",
                 expect(sum).toBe(3);
             });
 
+        it("Should return the sum of the multiple numbers string parameter passed to it",
+            function () {
+                var sum = calculator.add("1,2,4");
+
+                expect(sum).toBe(7);
+            });
+
         it("Should handle new lines between numbers instead of commas",
             function () {
                 var sum = calculator.add("1\n2,3");
 
                 expect(sum).toBe(6);
             });
-
     });
