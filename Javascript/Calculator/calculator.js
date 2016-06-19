@@ -9,9 +9,7 @@ exports.add = function (expression) {
             }
             result += parseInt(number);
         }
-        if (negativeNumbers.length > 0) {
-            throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE    + negativeNumbers.join(", "));
-        };
+        handleNegativeNumbers(negativeNumbers);
     }
     return result;
 }
@@ -57,4 +55,10 @@ var replaceDelimiters = function (expression, delimiters) {
     }
     expression = expression.replace(newLine, defaultDelimiter);
     return expression;
+}
+
+var handleNegativeNumbers = function (negativeNumbers) {
+    if (negativeNumbers.length > 0) {
+        throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE + negativeNumbers.join(", "));
+    };
 }
