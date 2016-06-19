@@ -15,10 +15,10 @@
 var calculator = require("../calculator.js");
 
 describe("String calculator ",
-    function() {
+    function () {
 
         it("Should return zero for an empty string",
-            function() {
+            function () {
                 var sum = calculator.add("");
 
                 expect(sum).toBe(0);
@@ -82,6 +82,7 @@ describe("String calculator ",
 
         it("Should throw an exception for negative numbers",
             function () {
-                expect(function() { calculator.add("//?\n2?2?-1"); }).toThrow(new Error("negatives not allowed - 1"));
+                expect(function () { calculator.add("//?\n2?2?-1"); })
+                    .toThrow(new Error("negatives not allowed - 1"));
             });
     });

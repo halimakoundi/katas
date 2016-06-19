@@ -3,6 +3,9 @@ exports.add = function (expression) {
     if (expression) {
         var numbers = parse(expression);
         for (number of numbers) {
+            if (number < 0) {
+                throw new Error("negatives not allowed - 1");
+            }
             result += parseInt(number);
         };
     }
