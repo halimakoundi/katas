@@ -47,7 +47,7 @@ describe("String calculator ",
 
                 expect(sum).toBe(6);
             });
-        it("Should handle other delimiters",
+        it("Should handle other delimiters like |",
             function () {
                 var sum = calculator.add("1|2,3");
 
