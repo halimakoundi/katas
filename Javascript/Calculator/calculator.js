@@ -1,9 +1,8 @@
 exports.add = function (expression) {
     var result = 0;
-    var negativeNumberErrormessage = "negatives not allowed: ";
     var negativeNumbers = [];
     if (expression) {
-        var numbersToSum = parse(expression);
+        var numbersToSum = new Parser().parse(expression);
         for (number of numbersToSum) {
             if (number < 0) {
                 negativeNumbers.push(number);
@@ -11,13 +10,21 @@ exports.add = function (expression) {
             result += parseInt(number);
         }
         if (negativeNumbers.length > 0) {
-            throw new Error(negativeNumberErrormessage + negativeNumbers.join(", "));
+            throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE    + negativeNumbers.join(", "));
         };
     }
     return result;
 }
+var NEGATIVE_NUMBER_ERORR_MESSAGE = "negatives not allowed: ";
 var newLine = "\n";
 var defaultDelimiter = ",";
+
+var Parser = function() {
+    this.parse = parse;
+    this.findDelimiters = findDelimiters;
+    this.replaceDelimiters = replaceDelimiters;
+
+}
 
 var parse = function (expression) {
     var expressions = expression.split("\n");
