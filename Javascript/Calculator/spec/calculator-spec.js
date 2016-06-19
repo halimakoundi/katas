@@ -17,12 +17,15 @@ var calculator = require("../calculator.js").new(parser);
 
 describe("String calculator ",
     function () {
+        var testCase = "Should return zero for an empty string";
+        var expression = "";
+        var expectedResult = 0;
 
-        it("Should return zero for an empty string",
+        it(testCase,
             function () {
-                var sum = calculator.add("");
+                var sum = calculator.add(expression);
 
-                expect(sum).toBe(0);
+                expect(sum).toBe(expectedResult);
             });
 
         it("Should return the int equivalent of the one string number passed to it",
