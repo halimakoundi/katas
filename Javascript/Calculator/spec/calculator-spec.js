@@ -12,7 +12,8 @@
  * should return three where the default delimiter is ‘;’ . 
  * The first line is optional. all existing scenarios should still be supported
  */
-var calculator = require("../calculator.js");
+var parser = require("../parser.js").new();
+var calculator = require("../calculator.js").new(parser);
 
 describe("String calculator ",
     function () {
