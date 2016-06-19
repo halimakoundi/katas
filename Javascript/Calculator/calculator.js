@@ -1,14 +1,17 @@
+var NEGATIVE_NUMBER_ERORR_MESSAGE = "negatives not allowed: ";
 var _parser;
 exports.new = function (parser) {
-    _parser = parser;
+    this._parser = parser;
+    this.add = add;
+
     return this;
 }
 
-exports.add = function (expression) {
+var add = function (expression) {
     var result = 0;
     var negativeNumbers = [];
     if (expression) {
-        var numbersToSum = _parser.parse(expression);
+        var numbersToSum = this._parser.parse(expression);
         for (number of numbersToSum) {
             if (number < 0) {
                 negativeNumbers.push(number);
@@ -19,7 +22,6 @@ exports.add = function (expression) {
     }
     return result;
 }
-var NEGATIVE_NUMBER_ERORR_MESSAGE = "negatives not allowed: ";
 
 var handleNegativeNumbers = function (negativeNumbers) {
     if (negativeNumbers.length > 0) {
