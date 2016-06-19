@@ -72,4 +72,11 @@ describe("String calculator ",
 
                 expect(sum).toBe(3);
             });
+
+        it("Should allow for change if the delimiter such as //?\n2?2?1 returns 5",
+            function () {
+                var sum = calculator.add("//?\n2?2?1");
+
+                expect(sum).toBe(5);
+            });
     });

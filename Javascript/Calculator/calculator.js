@@ -38,7 +38,7 @@ var findDelimiters = function (expression) {
 
 var replaceDelimiters = function (expression, delimiters) {
     for (delimiter of delimiters) {
-        expression = expression.replace(delimiter, defaultDelimiter);
+        expression = expression.split(delimiter).join(defaultDelimiter);
     }
     expression = expression.replace(newLine, defaultDelimiter);
     return expression;
