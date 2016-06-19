@@ -1,7 +1,5 @@
 exports.new = function () {
     this.parse = parse;
-    this.findDelimiters = findDelimiters;
-    this.replaceDelimiters = replaceDelimiters;
     return this;
 }
 

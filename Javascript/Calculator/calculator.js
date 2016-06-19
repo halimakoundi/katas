@@ -3,6 +3,7 @@ exports.new = function (parser) {
     _parser = parser;
     return this;
 }
+
 exports.add = function (expression) {
     var result = 0;
     var negativeNumbers = [];
