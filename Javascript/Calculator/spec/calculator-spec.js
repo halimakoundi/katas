@@ -7,6 +7,10 @@
  * a. the following input is ok: “1\n2,3” (will equal 6)
  * b. the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
  * Support different delimiters
+ * to change a delimiter, the beginning of the string will contain a separate line 
+ * that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” 
+ * should return three where the default delimiter is ‘;’ . 
+ * The first line is optional. all existing scenarios should still be supported
  */
 var calculator = require("../calculator.js");
 
@@ -60,5 +64,12 @@ describe("String calculator ",
                 var sum = calculator.add("1#2,3");
 
                 expect(sum).toBe(6);
+            });
+
+        it("Should allow for change if the delimiter such as //;\n1;2 returns 3",
+            function () {
+                var sum = calculator.add("//;\n1;2");
+
+                expect(sum).toBe(3);
             });
     });
