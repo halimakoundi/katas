@@ -16,7 +16,7 @@
 var parser = require("../parser.js").new();
 var calculator = require("../calculator.js").new(parser);
 var testCases = [];
-var addTestCases = function (testCaseName, expression, expectedResult) {
+var addTestCase = function (testCaseName, expression, expectedResult) {
     testCases.push(function () {
         this.testCaseName = testCaseName;
         this.expression = expression;
@@ -26,21 +26,21 @@ var addTestCases = function (testCaseName, expression, expectedResult) {
 }
 describe("String calculator ",
     function () {
-        addTestCases("Should return zero for an empty string", "", 0);
-        addTestCases("Should return the int equivalent of the one string number passed to it",
+        addTestCase("Should return zero for an empty string", "", 0);
+        addTestCase("Should return the int equivalent of the one string number passed to it",
             "1", 1);
-        addTestCases("Should return the sum of the two string numbers passed to it",
+        addTestCase("Should return the sum of the two string numbers passed to it",
             "1,2", 3);
-        addTestCases("Should return the sum of the multiple numbers string parameter passed to it",
+        addTestCase("Should return the sum of the multiple numbers string parameter passed to it",
             "1,2,4", 7);
-        addTestCases("Should handle new lines between numbers instead of commas",
+        addTestCase("Should handle new lines between numbers instead of commas",
            "1\n2,3", 6);
-        addTestCases("Should handle other delimiters like |",
+        addTestCase("Should handle other delimiters like |",
            "1|2,3", 6);
-        addTestCases("Should handle other delimiters like #", "1#2,3", 6);
-        addTestCases("Should allow for change if the delimiter such as //;\n1;2 returns 3",
+        addTestCase("Should handle other delimiters like #", "1#2,3", 6);
+        addTestCase("Should allow for change if the delimiter such as //;\n1;2 returns 3",
             "//;\n1;2", 3);
-        addTestCases("Should allow for change if the delimiter such as //?\n2?2?1 returns 5",
+        addTestCase("Should allow for change if the delimiter such as //?\n2?2?1 returns 5",
             "//?\n2?2?1", 5);
 
         for (testCase of testCases) {
