@@ -14,19 +14,27 @@
  */
 var parser = require("../parser.js").new();
 var calculator = require("../calculator.js").new(parser);
-
+var testCases = [];
+var addTestCases = function (testCaseName, expression, expectedResult) {
+    testCases.push(function () {
+        this.testCaseName = testCaseName;
+        this.expression = expression;
+        this.expectedResult = expectedResult;
+    }());
+}
 describe("String calculator ",
     function () {
-        var testCase = "Should return zero for an empty string";
-        var expression = "";
-        var expectedResult = 0;
+        addTestCases("Should return zero for an empty string", "", 0);
 
-        it(testCase,
-            function () {
-                var sum = calculator.add(expression);
+        for (testCase of testCases) {
+            it("Should return zero for an empty string",
+                function () {
+                    var sum = calculator.add("");
 
-                expect(sum).toBe(expectedResult);
-            });
+                    expect(sum).toBe(0);
+                });
+        }
+
 
         it("Should return the int equivalent of the one string number passed to it",
             function () {
