@@ -25,6 +25,8 @@ var addTestCases = function (testCaseName, expression, expectedResult) {
 describe("String calculator ",
     function () {
         addTestCases("Should return zero for an empty string", "", 0);
+        addTestCases("Should return the int equivalent of the one string number passed to it",
+            "1", 1);
 
         for (testCase of testCases) {
             it("Should return zero for an empty string",
