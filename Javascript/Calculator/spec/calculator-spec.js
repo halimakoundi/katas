@@ -12,6 +12,7 @@
  * should return three where the default delimiter is ‘;’ . 
  * The first line is optional. all existing scenarios should still be supported
  */
+
 var parser = require("../parser.js").new();
 var calculator = require("../calculator.js").new(parser);
 var testCases = [];
@@ -20,6 +21,7 @@ var addTestCases = function (testCaseName, expression, expectedResult) {
         this.testCaseName = testCaseName;
         this.expression = expression;
         this.expectedResult = expectedResult;
+        return this;
     }());
 }
 describe("String calculator ",
@@ -27,72 +29,28 @@ describe("String calculator ",
         addTestCases("Should return zero for an empty string", "", 0);
         addTestCases("Should return the int equivalent of the one string number passed to it",
             "1", 1);
+        addTestCases("Should return the sum of the two string numbers passed to it",
+            "1,2", 3);
+        addTestCases("Should return the sum of the multiple numbers string parameter passed to it",
+            "1,2,4", 7);
+        addTestCases("Should handle new lines between numbers instead of commas",
+           "1\n2,3", 6);
+        addTestCases("Should handle other delimiters like |",
+           "1|2,3", 6);
+        addTestCases("Should handle other delimiters like #", "1#2,3", 6);
+        addTestCases("Should allow for change if the delimiter such as //;\n1;2 returns 3",
+            "//;\n1;2", 3);
+        addTestCases("Should allow for change if the delimiter such as //?\n2?2?1 returns 5",
+            "//?\n2?2?1", 5);
 
         for (testCase of testCases) {
-            it("Should return zero for an empty string",
+            it(testCase.testCaseName,
                 function () {
-                    var sum = calculator.add("");
+                    var sum = calculator.add(testCase.expression);
 
-                    expect(sum).toBe(0);
+                    expect(sum).toBe(testCase.expectedResult);
                 });
         }
-
-
-        it("Should return the int equivalent of the one string number passed to it",
-            function () {
-                var sum = calculator.add("1");
-
-                expect(sum).toBe(1);
-            });
-
-        it("Should return the sum of the two string numbers passed to it",
-            function () {
-                var sum = calculator.add("1,2");
-
-                expect(sum).toBe(3);
-            });
-
-        it("Should return the sum of the multiple numbers string parameter passed to it",
-            function () {
-                var sum = calculator.add("1,2,4");
-
-                expect(sum).toBe(7);
-            });
-
-        it("Should handle new lines between numbers instead of commas",
-            function () {
-                var sum = calculator.add("1\n2,3");
-
-                expect(sum).toBe(6);
-            });
-
-        it("Should handle other delimiters like |",
-            function () {
-                var sum = calculator.add("1|2,3");
-
-                expect(sum).toBe(6);
-            });
-
-        it("Should handle other delimiters like #",
-            function () {
-                var sum = calculator.add("1#2,3");
-
-                expect(sum).toBe(6);
-            });
-
-        it("Should allow for change if the delimiter such as //;\n1;2 returns 3",
-            function () {
-                var sum = calculator.add("//;\n1;2");
-
-                expect(sum).toBe(3);
-            });
-
-        it("Should allow for change if the delimiter such as //?\n2?2?1 returns 5",
-            function () {
-                var sum = calculator.add("//?\n2?2?1");
-
-                expect(sum).toBe(5);
-            });
 
         it("Should throw an exception for negative numbers",
             function () {
