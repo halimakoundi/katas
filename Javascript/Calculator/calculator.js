@@ -1,13 +1,17 @@
 exports.add = function (expression) {
     var result = 0;
-    var negativeNumberErrormessage = "negatives not allowed - "
+    var negativeNumberErrormessage = "negatives not allowed: ";
+    var negativeNumbers = [];
     if (expression) {
         var numbersToSum = parse(expression);
         for (number of numbersToSum) {
             if (number < 0) {
-                throw new Error(negativeNumberErrormessage + (1));
+                negativeNumbers.push(number);
             }
             result += parseInt(number);
+        }
+        if (negativeNumbers.length > 0) {
+            throw new Error(negativeNumberErrormessage + negativeNumbers.join(", "));
         };
     }
     return result;

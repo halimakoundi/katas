@@ -83,6 +83,12 @@ describe("String calculator ",
         it("Should throw an exception for negative numbers",
             function () {
                 expect(function () { calculator.add("//?\n2?2?-1"); })
-                    .toThrow(new Error("negatives not allowed - 1"));
+                    .toThrow(new Error("negatives not allowed: -1"));
+            });
+
+        it("Should throw an exception for negative numbers and list them all",
+            function () {
+                expect(function () { calculator.add("//?\n2?-2?-1"); })
+                    .toThrow(new Error("negatives not allowed: -2, -1"));
             });
     });
