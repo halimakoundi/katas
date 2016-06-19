@@ -79,4 +79,9 @@ describe("String calculator ",
 
                 expect(sum).toBe(5);
             });
+
+        it("Should throw an exception for negative numbers",
+            function () {
+                expect(function() { calculator.add("//?\n2?2?-1"); }).toThrow(new Error("negatives not allowed - 1"));
+            });
     });
