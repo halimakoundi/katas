@@ -7,6 +7,7 @@ var newLine = "\n";
 var defaultDelimiter = ",";
 var delimiterDefiner = "//";
 var specialDelimiter = '***';
+var delimiterDefinerRegex = /^.*\[(.*?)].*/g;
 
 var parse = function (expression) {
     var expressions = expression.split("\n");
@@ -25,9 +26,8 @@ var parse = function (expression) {
                                .map(item => { return parseInt(item);});;
     return parameters;
 }
-
 var setDelimiters = function (delimitingExpression, delimiters) {
-    if (delimitingExpression.indexOf(']') > -1) {
+    if (delimitingExpression.search(delimiterDefinerRegex) > -1) {
         var definedDelimiters = delimitingExpression.split("]");
         for (definedDelimiter of definedDelimiters) {
             delimiters.push(definedDelimiter.replace("[",""));
