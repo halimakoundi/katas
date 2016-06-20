@@ -11,8 +11,13 @@ var parse = function (expression) {
     var delimiters = [];
     var delimiterDefiner = "//";
     if (expressions.length > 1 && expression.indexOf(delimiterDefiner) > -1) {
-        delimiters.push(expressions[0].replace(delimiterDefiner, ""));
-        expression = expressions[1];
+        if (expressions[0].indexOf('[]') > -1) {
+            delimiters.push('');
+            expression = expressions[1].replace('***', '');
+        } else {
+            delimiters.push(expressions[0].replace(delimiterDefiner, ""));
+            expression = expressions[1];
+        }
     } else {
         delimiters = findDelimiters(expression);
     }

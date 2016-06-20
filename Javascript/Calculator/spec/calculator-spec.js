@@ -12,6 +12,8 @@
  * should return three where the default delimiter is ‘;’ . 
  * The first line is optional. all existing scenarios should still be supported
  * Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
+ * Delimiters can be of any length with the following format:
+ * “//[delimiter]\n” for example: “//[]\n12***3” should return 6
  */
 
 var parser = require("../parser.js").new();
@@ -53,6 +55,8 @@ describe("String calculator ",
             "//?\n2?2?1", 5);
         addTestCase("Should ignore numbers greater than 1000 so that 2,1001 returns 2",
             "2,1001", 2);
+        addTestCase("Should handle delimiters of any length so that //[]\n12***3 returns 6",
+            "//[]\n12***3", 6);
 
         for (testCase of testCases) {
             var name = testCase.testCaseName;
