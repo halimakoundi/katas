@@ -6,13 +6,14 @@ exports.new = function () {
 var newLine = "\n";
 var defaultDelimiter = ",";
 var delimiterDefiner = "//";
+var specialDelimiter = '***';
 
 var parse = function (expression) {
     var expressions = expression.split("\n");
     var delimiters = [];
     if (expressions.length > 1 && expression.indexOf(delimiterDefiner) > -1) {
         setDelimiters(expressions[0], delimiters);
-        expression = expressions[1].replace('***', '');
+        expression = expressions[1].replace(specialDelimiter, '');
     } else {
         delimiters = findDelimiters(expression);
     }
