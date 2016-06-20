@@ -16,6 +16,7 @@
  * “//[delimiter]\n” for example: “//[]\n12***3” should return 6
  * Allow multiple delimiters like this: “//[delim1][delim2]\n”
  * for example “//[][%]\n12%3” should return 6.
+ * make sure you can also handle multiple delimiters with length longer than one char
  */
 
 var parser = require("../parser.js").new();
@@ -61,6 +62,8 @@ describe("String calculator ",
             "//[]\n12***3", 6);
         addTestCase("Should handle multiple delimiters so that //[][%]\n12%3 returns 6",
             "//[][%]\n12%3", 6);
+        addTestCase("Should handle multiple delimiters with length longer than one char so that //[][#][%]\n12%3#5 returns 11",
+            "//[][#][%@]\n12%@3#5", 11);
 
         for (testCase of testCases) {
             var name = testCase.testCaseName;
