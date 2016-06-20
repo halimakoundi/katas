@@ -11,19 +11,20 @@ var specialDelimiter = '***';
 var parse = function (expression) {
     var expressions = expression.split("\n");
     var delimiters = [];
-    if (expressions.length > 1 && expression.indexOf(delimiterDefiner) > -1) {
+    var isDelimiterDefinedInExpression = expressions.length > 1
+                                         && expression.indexOf(delimiterDefiner) > -1;
+    if (isDelimiterDefinedInExpression) {
         setDelimiters(expressions[0], delimiters);
         expression = expressions[1].replace(specialDelimiter, '');
-    } else {
-        delimiters = findDelimiters(expression);
     }
+    findDelimiters(expression, delimiters);
+
     expression = replaceDelimiters(expression, delimiters);
     var parameters = expression.split(defaultDelimiter);
     return parameters;
 }
 
-var setDelimiters = function(delimitingExpression, delimiters)
-{
+var setDelimiters = function (delimitingExpression, delimiters) {
     if (delimitingExpression.indexOf('[]') > -1) {
         delimiters.push('');
     } else {
@@ -31,10 +32,9 @@ var setDelimiters = function(delimitingExpression, delimiters)
     }
 }
 
-var findDelimiters = function (expression) {
-    var delimiters = [];
+var findDelimiters = function (expression, delimiters) {
     for (element of expression) {
-        if (isNaN(element)) {
+        if (isNaN(element) && element != '-') {
             delimiters.push(element);
         }
     }
