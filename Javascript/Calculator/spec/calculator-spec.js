@@ -11,18 +11,27 @@
  * that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” 
  * should return three where the default delimiter is ‘;’ . 
  * The first line is optional. all existing scenarios should still be supported
+ * Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
  */
 
 var parser = require("../parser.js").new();
 var calculator = require("../calculator.js").new(parser);
 var testCases = [];
 var addTestCase = function (testCaseName, expression, expectedResult) {
-    testCases.push(function () {
-        this.testCaseName = testCaseName;
-        this.expression = expression;
-        this.expectedResult = expectedResult;
-        return this;
-    }());
+    var TestCase = {
+        'testCaseName': testCaseName,
+        'expression': expression,
+        'expectedResult': expectedResult
+    }
+    testCases.push(TestCase);
+}
+var runTest=function(name, expression, expected) {
+    it(name,
+        function () {
+            var sum = calculator.add(expression);
+
+            expect(sum).toBe(expected);
+        });
 }
 describe("String calculator ",
     function () {
@@ -42,14 +51,14 @@ describe("String calculator ",
             "//;\n1;2", 3);
         addTestCase("Should allow for change if the delimiter such as //?\n2?2?1 returns 5",
             "//?\n2?2?1", 5);
+        addTestCase("Should ignore numbers greater than 1000 so that 2,1001 returns 2",
+            "2,1001", 2);
 
         for (testCase of testCases) {
-            it(testCase.testCaseName,
-                function () {
-                    var sum = calculator.add(testCase.expression);
-
-                    expect(sum).toBe(testCase.expectedResult);
-                });
+            var name = testCase.testCaseName;
+            var expression = testCase.expression;
+            var expected = testCase.expectedResult;
+            runTest(name, expression, expected);
         }
 
         it("Should throw an exception for negative numbers",

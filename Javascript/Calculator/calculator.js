@@ -16,7 +16,9 @@ var add = function (expression) {
             if (number < 0) {
                 negativeNumbers.push(number);
             }
-            result += parseInt(number);
+            if (number < 1000) {
+                result += parseInt(number);
+            }
         }
         handleNegativeNumbers(negativeNumbers);
     }
