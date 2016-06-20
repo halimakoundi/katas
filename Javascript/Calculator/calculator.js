@@ -1,12 +1,13 @@
 var NEGATIVE_NUMBER_ERORR_MESSAGE = "negatives not allowed: ";
 var _parser;
+var maxAddedNumber = 1000;
+
 exports.new = function (parser) {
     this._parser = parser;
     this.add = add;
 
     return this;
 }
-
 var add = function (expression) {
     var result = 0;
     var negativeNumbers = [];
@@ -16,7 +17,7 @@ var add = function (expression) {
             if (number < 0) {
                 negativeNumbers.push(number);
             }
-            if (number < 1000) {
+            if (number < maxAddedNumber) {
                 result += parseInt(number);
             }
         }
