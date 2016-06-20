@@ -5,25 +5,29 @@ exports.new = function () {
 
 var newLine = "\n";
 var defaultDelimiter = ",";
+var delimiterDefiner = "//";
 
 var parse = function (expression) {
     var expressions = expression.split("\n");
     var delimiters = [];
-    var delimiterDefiner = "//";
     if (expressions.length > 1 && expression.indexOf(delimiterDefiner) > -1) {
-        if (expressions[0].indexOf('[]') > -1) {
-            delimiters.push('');
-            expression = expressions[1].replace('***', '');
-        } else {
-            delimiters.push(expressions[0].replace(delimiterDefiner, ""));
-            expression = expressions[1];
-        }
+        setDelimiters(expressions[0], delimiters);
+        expression = expressions[1].replace('***', '');
     } else {
         delimiters = findDelimiters(expression);
     }
     expression = replaceDelimiters(expression, delimiters);
     var parameters = expression.split(defaultDelimiter);
     return parameters;
+}
+
+var setDelimiters = function(delimitingExpression, delimiters)
+{
+    if (delimitingExpression.indexOf('[]') > -1) {
+        delimiters.push('');
+    } else {
+        delimiters.push(delimitingExpression.replace(delimiterDefiner, ""));
+    }
 }
 
 var findDelimiters = function (expression) {
