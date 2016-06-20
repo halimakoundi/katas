@@ -20,15 +20,17 @@ var parse = function (expression) {
     findDelimiters(expression, delimiters);
 
     expression = replaceDelimiters(expression, delimiters);
-    var parameters = expression.split(defaultDelimiter);
+    var parameters = expression.split(defaultDelimiter)
+                               .filter(function (n) { return n != '' });
     return parameters;
 }
 
 var setDelimiters = function (delimitingExpression, delimiters) {
+    if (delimitingExpression.indexOf('[][%]') > -1) {
+        delimiters.push('%');
+    }
     if (delimitingExpression.indexOf('[]') > -1) {
         delimiters.push('');
-    } else {
-        delimiters.push(delimitingExpression.replace(delimiterDefiner, ""));
     }
 }
 
