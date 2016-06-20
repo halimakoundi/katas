@@ -27,6 +27,12 @@ var parse = function (expression) {
 }
 
 var setDelimiters = function (delimitingExpression, delimiters) {
+    if (delimitingExpression.indexOf(']') > -1) {
+        var definedDelimiters = delimitingExpression.split("]");
+        for (definedDelimiter of definedDelimiters) {
+            delimiters.push(definedDelimiter.replace("[",""));
+        }
+    }
     if (delimitingExpression.indexOf('[][%]') > -1) {
         delimiters.push('%');
     }
