@@ -33,12 +33,6 @@ var setDelimiters = function (delimitingExpression, delimiters) {
             delimiters.push(definedDelimiter.replace("[",""));
         }
     }
-    if (delimitingExpression.indexOf('[][%]') > -1) {
-        delimiters.push('%');
-    }
-    if (delimitingExpression.indexOf('[]') > -1) {
-        delimiters.push('');
-    }
 }
 
 var findDelimiters = function (expression, delimiters) {
