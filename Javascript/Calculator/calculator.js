@@ -18,7 +18,7 @@ var add = function (expression) {
                 negativeNumbers.push(number);
             }
             if (number < maxAddedNumber) {
-                result += parseInt(number);
+                result += number;
             }
         }
         handleNegativeNumbers(negativeNumbers);

@@ -21,7 +21,8 @@ var parse = function (expression) {
 
     expression = replaceDelimiters(expression, delimiters);
     var parameters = expression.split(defaultDelimiter)
-                               .filter(function (n) { return n != '' });
+                               .filter(function (n) { return n != '' })
+                               .map(item => { return parseInt(item);});;
     return parameters;
 }
 
