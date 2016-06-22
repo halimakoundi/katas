@@ -16,7 +16,7 @@ var extractNumbersToSum = function (expression) {
         delimiters = getDelimitersFrom(expressions[0]);
         expression = expressions[1].replace(specialDelimiter, '');
     }
-    findDelimiters(expression, delimiters);
+    delimiters = delimiters.concat(findAdditionalDelimiters(expression));
 
     expression = replaceDelimiters(expression, delimiters);
     var parameters = expression.split(defaultDelimiter)
@@ -24,6 +24,7 @@ var extractNumbersToSum = function (expression) {
                                .map(item => { return parseInt(item); });;
     return parameters;
 }
+
 var getDelimitersFrom = function (delimitingExpression) {
     var delimiters = [];
     if (delimitingExpression.search(delimiterDefinerRegex) > -1) {
@@ -40,14 +41,14 @@ var isDelimiterDefinedInExpression = function (expressions) {
             && expressions[0].indexOf(delimiterDefiner) > -1;
 }
 
-
-var findDelimiters = function (expression, delimiters) {
+var findAdditionalDelimiters = function (expression) {
+    var additionalDelimiters = [];
     for (element of expression) {
         if (isNaN(element) && element != '-') {
-            delimiters.push(element);
+            additionalDelimiters.push(element);
         }
     }
-    return delimiters;
+    return additionalDelimiters;
 }
 
 var replaceDelimiters = function (expression, delimiters) {
