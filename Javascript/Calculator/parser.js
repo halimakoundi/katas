@@ -13,7 +13,7 @@ var extractNumbersToSum = function (expression) {
     var expressions = expression.split(newLine);
     var delimiters = [];
     if (isDelimiterDefinedInExpression(expressions)) {
-        setDelimiters(expressions[0], delimiters);
+        delimiters = getDelimitersFrom(expressions[0]);
         expression = expressions[1].replace(specialDelimiter, '');
     }
     findDelimiters(expression, delimiters);
@@ -24,13 +24,15 @@ var extractNumbersToSum = function (expression) {
                                .map(item => { return parseInt(item); });;
     return parameters;
 }
-var setDelimiters = function (delimitingExpression, delimiters) {
+var getDelimitersFrom = function (delimitingExpression) {
+    var delimiters = [];
     if (delimitingExpression.search(delimiterDefinerRegex) > -1) {
         var definedDelimiters = delimitingExpression.split("]");
         for (definedDelimiter of definedDelimiters) {
             delimiters.push(definedDelimiter.replace("[", ""));
         }
     }
+    return delimiters;
 }
 
 var isDelimiterDefinedInExpression = function (expressions) {
