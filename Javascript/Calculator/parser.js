@@ -9,7 +9,7 @@ var specialDelimiter = '***';
 var delimiterDefinerRegex = /^.*\[(.*?)].*/g;
 
 var extractNumbersToSum = function (expression) {
-    var arithmeticExpression = ArithmeticExpression(expression);
+    var arithmeticExpression = new ArithmeticExpression(expression);
     return arithmeticExpression.numbersToSum();
 }
 
