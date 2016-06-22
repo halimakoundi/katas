@@ -1,5 +1,5 @@
 exports.new = function () {
-    this.parse = parse;
+    this.extractNumbersToSum = extractNumbersToSum;
     return this;
 }
 
@@ -9,8 +9,8 @@ var delimiterDefiner = "//";
 var specialDelimiter = '***';
 var delimiterDefinerRegex = /^.*\[(.*?)].*/g;
 
-var parse = function (expression) {
-    var expressions = expression.split("\n");
+var extractNumbersToSum = function (expression) {
+    var expressions = expression.split(newLine);
     var delimiters = [];
     var isDelimiterDefinedInExpression = expressions.length > 1
                                          && expression.indexOf(delimiterDefiner) > -1;

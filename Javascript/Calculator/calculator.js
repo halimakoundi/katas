@@ -12,12 +12,12 @@ var add = function (expression) {
     var result = 0;
     var negativeNumbers = [];
     if (expression) {
-        var numbersToSum = this._parser.parse(expression);
+        var numbersToSum = this._parser.extractNumbersToSum(expression);
         for (number of numbersToSum) {
             if (number < 0) {
                 negativeNumbers.push(number);
             }
-            if (number < maxAddedNumber) {
+            if (isBelowTreshold(number)) {
                 result += number;
             }
         }
@@ -30,4 +30,8 @@ var handleNegativeNumbers = function (negativeNumbers) {
     if (negativeNumbers.length > 0) {
         throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE + negativeNumbers.join(", "));
     };
+}
+
+var isBelowTreshold = function () {
+    return number < maxAddedNumber;
 }
