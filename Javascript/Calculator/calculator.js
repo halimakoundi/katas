@@ -17,7 +17,7 @@ var add = function (expression) {
             if (number < 0) {
                 negativeNumbers.push(number);
             }
-            if (isBelowTreshold(number)) {
+            if (isBelowThreshold(number)) {
                 result += number;
             }
         }
@@ -32,6 +32,6 @@ var handleNegativeNumbers = function (negativeNumbers) {
     };
 }
 
-var isBelowTreshold = function () {
+var isBelowThreshold = function () {
     return number < maxAddedNumber;
 }
