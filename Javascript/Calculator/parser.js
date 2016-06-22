@@ -10,19 +10,8 @@ var specialDelimiter = '***';
 var delimiterDefinerRegex = /^.*\[(.*?)].*/g;
 
 var extractNumbersToSum = function (expression) {
-    var expressions = expression.split(newLine);
-    var delimiters = [];
-    if (isDelimiterDefinedInExpression(expressions)) {
-        delimiters = getDelimitersFrom(expressions[0]);
-        expression = expressions[1].replace(specialDelimiter, '');
-    }
-    delimiters = delimiters.concat(findAdditionalDelimiters(expression));
-
-    expression = replaceDelimiters(expression, delimiters);
-    var parameters = expression.split(defaultDelimiter)
-                               .filter(function (n) { return n != '' })
-                               .map(item => { return parseInt(item); });;
-    return parameters;
+    var arithmeticExpression = ArithmeticExpression(expression);
+    return arithmeticExpression.numbersToSum();
 }
 
 var getDelimitersFrom = function (delimitingExpression) {
@@ -57,4 +46,25 @@ var replaceDelimiters = function (expression, delimiters) {
     }
     expression = expression.replace(newLine, defaultDelimiter);
     return expression;
+}
+
+var ArithmeticExpression = function (expression) {
+    var expressions =  expression.split(newLine);
+    var delimiters = [];
+    var numbersAsString = expression;
+    if (isDelimiterDefinedInExpression(expressions)) {
+        delimiters = getDelimitersFrom(expressions[0]);
+        numbersAsString = expressions[1].replace(specialDelimiter, '');
+    }
+    delimiters = delimiters.concat(findAdditionalDelimiters(expression));
+    numbersAsString = replaceDelimiters(numbersAsString, delimiters);
+
+    this.numbersToSum = function() {
+        var parameters = numbersAsString.split(defaultDelimiter)
+            .filter(function (n) { return n != '' })
+            .map(item => { return parseInt(item); });
+        return parameters;
+    };
+
+    return this;
 }

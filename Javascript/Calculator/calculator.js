@@ -8,6 +8,7 @@ exports.new = function (parser) {
 
     return this;
 }
+
 var add = function (expression) {
     var result = 0;
     if (expression) {
