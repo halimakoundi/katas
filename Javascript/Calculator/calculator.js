@@ -10,28 +10,32 @@ exports.new = function (parser) {
 }
 var add = function (expression) {
     var result = 0;
-    var negativeNumbers = [];
     if (expression) {
         var numbersToSum = this._parser.extractNumbersToSum(expression);
         for (number of numbersToSum) {
             if (number < 0) {
-                negativeNumbers.push(number);
+                handleNegativeNumbers(numbersToSum);
             }
             if (isBelowThreshold(number)) {
                 result += number;
             }
         }
-        handleNegativeNumbers(negativeNumbers);
     }
     return result;
 }
 
-var handleNegativeNumbers = function (negativeNumbers) {
+var handleNegativeNumbers = function (numbersToSum) {
+    var negativeNumbers = [];
+    for (number of numbersToSum) {
+        if (number < 0) {
+            negativeNumbers.push(number);
+        }
+    }
     if (negativeNumbers.length > 0) {
         throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE + negativeNumbers.join(", "));
     };
 }
 
-var isBelowThreshold = function () {
+var isBelowThreshold = function (number) {
     return number < maxAddedNumber;
 }
