@@ -25,7 +25,7 @@ var add = function (expression) {
 }
 
 var handleNegativeNumbers = function (numbersToSum) {
-    var negativeNumbers = numbersToSum.filter(function (n) { return n < 0 })
+    var negativeNumbers = numbersToSum.filter(function(n) { return n < 0 });
     if (negativeNumbers.length > 0) {
         throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE + negativeNumbers.join(", "));
     };
