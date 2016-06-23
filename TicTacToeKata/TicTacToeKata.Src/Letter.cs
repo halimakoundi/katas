@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TicTacToeKata.Src
+﻿namespace TicTacToeKata.Src
 {
     public class Letter
     {
@@ -9,18 +6,8 @@ namespace TicTacToeKata.Src
 
         public Letter(string letter)
         {
-            ValidateSubmittedLetter(letter);
+            Rules.ValidateSubmittedLetter(letter);
             _letter = letter;
-        }
-
-        private void ValidateSubmittedLetter(string letter)
-        {
-            var validLetters = new List<string> { "X", "O" };
-            if (string.IsNullOrEmpty(letter)
-                || !validLetters.Contains(letter))
-            {
-                throw new Exception($"Provided letter is not valid: {letter}");
-            }
         }
 
         public Letter()

@@ -46,6 +46,7 @@
     <Compile Include="Letter.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Row.cs" />
+    <Compile Include="Rules.cs" />
     <Compile Include="TicTacToe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
