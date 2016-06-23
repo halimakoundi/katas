@@ -1,22 +1,16 @@
 ﻿namespace TicTacToeKata.Src
 {
-    public class Row
+    public class Row:Coordinate
     {
-        private readonly int _row;
-
-        public Row(int row)
+        public Row(int coordinate)
         {
-            _row = row;
+            _coordinate = coordinate;
         }
 
         public Row()
         {
         }
 
-        public override bool Equals(object obj)
-        {
-            var otherRow = (Row)obj;
-            return _row == otherRow._row;
-        }
+        
     }
 }

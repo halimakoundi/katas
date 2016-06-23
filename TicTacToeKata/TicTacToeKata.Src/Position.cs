@@ -4,7 +4,7 @@ namespace TicTacToeKata.Src
 {
     public class Position
     {
-        private readonly Object _column;
+        private readonly Coordinate _column;
         private readonly Row _row;
 
         public Position(int column, int row)
