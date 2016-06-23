@@ -7,7 +7,7 @@
         {
         }
 
-        public Row() : base()
+        public Row()
         {
         }
 
