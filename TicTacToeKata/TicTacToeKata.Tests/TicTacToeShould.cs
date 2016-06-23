@@ -12,6 +12,8 @@ Object Calisthenics, 9 steps to better software design
  */
 
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using TicTacToeKata.Src;
 
 namespace TicTacToeKata.Tests
@@ -56,5 +58,33 @@ namespace TicTacToeKata.Tests
 
             Assert.That(result, Is.EqualTo(true));
         }
+
+        [Test]
+        public void declare_game_as_draw_when_board_is_full_with_no_winner()
+        {
+            var game = new TicTacToe();
+            var turns = new List<Cell>
+            {
+                new Cell("X", 1, 1),
+                new Cell("O", 3, 3),
+                new Cell("X", 1, 3),
+                new Cell("O", 3, 1),
+                new Cell("X", 3, 2),
+                new Cell("O", 1, 2),
+                new Cell("X", 2, 2),
+                new Cell("O", 2, 1),
+                new Cell("X", 2, 3)
+            };
+
+            var index = 0;
+            while (index < 9)
+            {
+                game.Play(turns[index]);
+                index += 1;
+            }
+
+            Assert.That(game.GetResult(), Is.EqualTo(GameResult.DRAW));
+        }
+
     }
 }
