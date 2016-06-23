@@ -28,7 +28,19 @@ namespace TicTacToeKata.Tests
         public void add_an_X_to_the_board_on_given_coordinates(string letter, int column, int row, bool expected)
         {
             _game = new TicTacToe();
-            Assert.AreEqual(expected, _game.Play(letter, column, row));
+            _turns = new List<Cell>
+            {
+                new Cell(letter, column, row)
+            };
+
+            var index = 0;
+            while (index < _turns.Count)
+            {
+                _game.Play(_turns[index]);
+                index += 1;
+            }
+
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
         }
 
         [Test]
@@ -49,17 +61,20 @@ namespace TicTacToeKata.Tests
         public void add_an_O_to_the_board_after_an_X_is_added_at_a_different_position()
         {
             _game = new TicTacToe();
-            var letter = "X";
-            var column = 1;
-            var row = 2;
-            _game.Play(letter, column, row);
+            _turns = new List<Cell>
+            {
+                new Cell("X", 1, 2),
+                new Cell("O", 3, 1)
+            };
 
-            letter = "O";
-            column = 3;
-            row = 1;
-            var result = _game.Play(letter, column, row);
+            var index = 0;
+            while (index < _turns.Count)
+            {
+                _game.Play(_turns[index]);
+                index += 1;
+            }
 
-            Assert.That(result, Is.EqualTo(true));
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
         }
 
         [Test]

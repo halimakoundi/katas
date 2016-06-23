@@ -18,9 +18,13 @@
 
         public GameResult GetResult()
         {
+            if (_board < 5)
+            {
+                return _result;
+            }
             if (_board < 9)
             {
-                return  GameResult.X_Wins;
+                return GameResult.X_Wins;
             }
             return GameResult.DRAW;
         }
