@@ -6,12 +6,12 @@
 
         public bool Play(string letter, int column, int row)
         {
-            if (!_cell.IsEmpty())
+            if (_cell.IsEmpty())
             {
-                return false;
+                _cell = new Cell(letter, column, row);
+                return true;
             }
-            _cell = new Cell(letter,column,row);
-            return true;
+            return false;
         }
 
     }
