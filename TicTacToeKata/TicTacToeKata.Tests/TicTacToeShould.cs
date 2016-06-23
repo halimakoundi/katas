@@ -40,11 +40,9 @@ namespace TicTacToeKata.Tests
 
         private void PlayAllTurns()
         {
-            var index = 0;
             foreach (var turn in _turns)
             {
-                _game.Play(_turns[index]);
-                index += 1;
+                _game.Play(turn);
             }
         }
 
@@ -72,13 +70,7 @@ namespace TicTacToeKata.Tests
                 new Cell("O", 3, 1)
             };
 
-            var index = 0;
-            while (index < _turns.Count)
-            {
-                _game.Play(_turns[index]);
-                index += 1;
-            }
-
+            PlayAllTurns();
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
         }
 
@@ -99,12 +91,7 @@ namespace TicTacToeKata.Tests
                 new Cell("X", 2, 3)
             };
 
-            var index = 0;
-            while (index < 9)
-            {
-                _game.Play(_turns[index]);
-                index += 1;
-            }
+            PlayAllTurns();
 
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.DRAW));
         }
@@ -112,7 +99,7 @@ namespace TicTacToeKata.Tests
         [Test]
         public void declare_X_as_winner_when_3_Xs_are_horizontally_adjacent()
         {
-            var game = new TicTacToe();
+            _game = new TicTacToe();
             _turns = new List<Cell>
             {
                 new Cell("X", 1, 1),
@@ -122,14 +109,9 @@ namespace TicTacToeKata.Tests
                 new Cell("X", 2, 1)
             };
 
-            var index = 0;
-            while (index < _turns.Count)
-            {
-                game.Play(_turns[index]);
-                index += 1;
-            }
+            PlayAllTurns();
 
-            Assert.That(game.GetResult(), Is.EqualTo(GameResult.X_Wins));
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.X_Wins));
         }
 
     }
