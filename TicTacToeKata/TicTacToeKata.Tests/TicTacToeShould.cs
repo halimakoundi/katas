@@ -50,15 +50,16 @@ namespace TicTacToeKata.Tests
         [Test]
         public void not_add_a_letter_to_the_board_on_non_empty_positon()
         {
-            _game = new TicTacToe();
-            var letter = "X";
-            var column = 1;
-            var row = 2;
-            var result = _game.Play(letter, column, row);
-
-            result = _game.Play(letter, column, row);
-
-            Assert.That(result, Is.EqualTo(false));
+            Assert.Throws(typeof(Exception), () =>
+            {
+                _game = new TicTacToe();
+                _game.Play(new Cell(new Letter("X"),
+                    new Position(new Column(1),
+                        new Row(2))));
+                _game.Play(new Cell(new Letter("X"),
+                    new Position(new Column(1),
+                        new Row(2))));
+            });
         }
 
         [Test]
@@ -119,14 +120,15 @@ namespace TicTacToeKata.Tests
         public void not_add_invalid_letter_to_the_board()
         {
             Assert.Throws(typeof(Exception),
-            ()=> {
-                     _game = new TicTacToe();
-                     _turns = new List<Cell>
+            () =>
+            {
+                _game = new TicTacToe();
+                _turns = new List<Cell>
                      {
                          new Cell(new Letter("Z"), new Position(new Column(1), new Row(1)))
                      };
 
-                     PlayAllTurns();
+                PlayAllTurns();
             });
         }
 
@@ -134,7 +136,8 @@ namespace TicTacToeKata.Tests
         public void not_add_cell_with_invalid_coordinate_to_the_board()
         {
             Assert.Throws(typeof(Exception),
-            () => {
+            () =>
+            {
                 _game = new TicTacToe();
                 _turns = new List<Cell>
                      {
