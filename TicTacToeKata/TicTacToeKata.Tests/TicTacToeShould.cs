@@ -33,14 +33,19 @@ namespace TicTacToeKata.Tests
                 new Cell(letter, column, row)
             };
 
+            PlayAllTurns();
+
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
+        }
+
+        private void PlayAllTurns()
+        {
             var index = 0;
-            while (index < _turns.Count)
+            foreach (var turn in _turns)
             {
                 _game.Play(_turns[index]);
                 index += 1;
             }
-
-            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
         }
 
         [Test]
