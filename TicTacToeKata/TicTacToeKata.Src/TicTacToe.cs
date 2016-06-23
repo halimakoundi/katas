@@ -7,7 +7,7 @@ namespace TicTacToeKata.Src
         private Cell _cell;
         private GameResult _result = GameResult.IN_PROGRESS;
 
-        private int _board;
+        private readonly Board _board = new Board();
 
         private void ValidateCell(Cell cell)
         {
@@ -21,20 +21,12 @@ namespace TicTacToeKata.Src
         public void Play(Cell cell)
         {
             ValidateCell(cell);
-            _board += 1;
+            _board.AddCell(cell);
         }
 
         public GameResult GetResult()
         {
-            if (_board < 5)
-            {
-                return _result;
-            }
-            if (_board < 9)
-            {
-                return GameResult.X_Wins;
-            }
-            return GameResult.DRAW;
+           return _board.GetResult();
         }
     }
 }
