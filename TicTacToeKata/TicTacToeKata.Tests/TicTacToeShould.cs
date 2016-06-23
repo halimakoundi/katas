@@ -11,6 +11,7 @@ Object Calisthenics, 9 steps to better software design
 • No getters/setters/properties
  */
 
+using System;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -112,6 +113,21 @@ namespace TicTacToeKata.Tests
             PlayAllTurns();
 
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.X_Wins));
+        }
+
+        [Test]
+        public void not_add_invalid_letter_to_the_board()
+        {
+            Assert.Throws(typeof(Exception),
+            ()=> {
+                     _game = new TicTacToe();
+                     _turns = new List<Cell>
+                     {
+                         new Cell("Z", 1, 1)
+                     };
+
+                     PlayAllTurns();
+            });
         }
 
     }
