@@ -2,19 +2,19 @@
 {
     public class TicTacToe
     {
-        private string letter;
-        private int column;
-        private int row;
+        private string _letter;
+        private int _column;
+        private int _row;
 
         public bool Play(string letter, int column, int row)
         {
-            if (letter == this.letter && column == this.column && row == this.row)
+            if (letter == _letter && column == _column && row == _row)
             {
                 return false;
             }
-            this.letter = letter;
-            this.row = row;
-            this.column = column;
+            _letter = letter;
+            _row = row;
+            _column = column;
             return true;
         }
 
