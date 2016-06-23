@@ -2,13 +2,13 @@
 {
     public class TicTacToe
     {
-        private Cell _cell = new Cell();
+        private Cell _cell;
         private GameResult _result = GameResult.IN_PROGRESS;
         private int _board;
 
         public bool Play(string letter, int column, int row)
         {
-            if (!_cell.Equals(new Cell(letter, column, row)))
+            if (_cell != null && !_cell.Equals(new Cell(letter, column, row)))
             {
                 _cell = new Cell(letter, column, row);
                 return true;

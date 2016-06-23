@@ -10,10 +10,6 @@
             _letter = letter;
         }
 
-        public Letter()
-        {
-        }
-
         public override bool Equals(object obj)
         {
             var otherLetter = (Letter)obj;

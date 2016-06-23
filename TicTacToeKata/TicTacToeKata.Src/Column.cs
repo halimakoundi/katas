@@ -2,14 +2,8 @@
 {
     public class Column : Coordinate
     {
-        public Column(int coordinate):base(coordinate)
+        public Column(int coordinate) : base(coordinate)
         {
         }
-
-        public Column()
-        {
-        }
-
-        
     }
 }

@@ -13,12 +13,6 @@ namespace TicTacToeKata.Src
             _row = new Row(row);
         }
 
-        public Position()
-        {
-            _column = new Column();
-            _row = new Row();
-        }
-
         public override bool Equals(object obj)
         {
             var otherPosition = (Position)obj;

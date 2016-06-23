@@ -20,10 +20,6 @@ namespace TicTacToeKata.Src
             }
         }
 
-        protected Coordinate()
-        {
-        }
-
         public override bool Equals(object obj)
         {
             var otherColumn = (Coordinate)obj;

@@ -11,11 +11,6 @@
             _position = new Position(column, row);
         }
 
-        public Cell()
-        {
-            _position = new Position();
-            _letter = new Letter();
-        }
 
         public bool IsEmpty()
         {
