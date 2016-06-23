@@ -3,12 +3,12 @@
     public class Position
     {
         private readonly Coordinate _column;
-        private readonly Row _row;
+        private readonly Coordinate _row;
 
-        public Position(int column, int row)
+        public Position(Column column, Row row)
         {
-            _column = new Column(column);
-            _row = new Row(row);
+            _column = column;
+            _row = row;
         }
 
         public override bool Equals(object obj)

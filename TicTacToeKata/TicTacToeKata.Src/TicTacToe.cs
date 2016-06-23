@@ -8,9 +8,9 @@
 
         public bool Play(string letter, int column, int row)
         {
-            if (_cell != null && !_cell.Equals(new Cell(new Letter(letter), new Position(column, row))))
+            if (_cell != null && !_cell.Equals(new Cell(new Letter(letter), new Position(new Column(column), new Row(row)))))
             {
-                _cell = new Cell(new Letter(letter), new Position(column, row));
+                _cell = new Cell(new Letter(letter), new Position(new Column(column), new Row(row)));
                 return true;
             }
             return false;

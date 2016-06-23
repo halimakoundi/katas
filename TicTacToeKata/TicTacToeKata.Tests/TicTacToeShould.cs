@@ -31,7 +31,7 @@ namespace TicTacToeKata.Tests
             _game = new TicTacToe();
             _turns = new List<Cell>
             {
-                new Cell(new Letter(letter), new Position(column, row))
+                new Cell(new Letter(letter), new Position(new Column(column), new Row(row)))
             };
 
             PlayAllTurns();
@@ -67,8 +67,8 @@ namespace TicTacToeKata.Tests
             _game = new TicTacToe();
             _turns = new List<Cell>
             {
-                new Cell(new Letter("X"), new Position(1, 2)),
-                new Cell(new Letter("O"), new Position(3, 1))
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(2))),
+                new Cell(new Letter("O"), new Position(new Column(3), new Row(1)))
             };
 
             PlayAllTurns();
@@ -81,15 +81,15 @@ namespace TicTacToeKata.Tests
             _game = new TicTacToe();
             _turns = new List<Cell>
             {
-                new Cell(new Letter("X"), new Position(1, 1)),
-                new Cell(new Letter("O"), new Position(3, 3)),
-                new Cell(new Letter("X"), new Position(1, 3)),
-                new Cell(new Letter("O"), new Position(3, 1)),
-                new Cell(new Letter("X"), new Position(3, 2)),
-                new Cell(new Letter("O"), new Position(1, 2)),
-                new Cell(new Letter("X"), new Position(2, 2)),
-                new Cell(new Letter("O"), new Position(2, 1)),
-                new Cell(new Letter("X"), new Position(2, 3))
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(1))),
+                new Cell(new Letter("O"), new Position(new Column(3), new Row(3))),
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(3))),
+                new Cell(new Letter("O"), new Position(new Column(3), new Row(1))),
+                new Cell(new Letter("X"), new Position(new Column(3), new Row(2))),
+                new Cell(new Letter("O"), new Position(new Column(1), new Row(2))),
+                new Cell(new Letter("X"), new Position(new Column(2), new Row(2))),
+                new Cell(new Letter("O"), new Position(new Column(2), new Row(1))),
+                new Cell(new Letter("X"), new Position(new Column(2), new Row(3)))
             };
 
             PlayAllTurns();
@@ -103,11 +103,11 @@ namespace TicTacToeKata.Tests
             _game = new TicTacToe();
             _turns = new List<Cell>
             {
-                new Cell(new Letter("X"), new Position(1, 1)),
-                new Cell(new Letter("O"), new Position(3, 3)),
-                new Cell(new Letter("X"), new Position(3, 1)),
-                new Cell(new Letter("O"), new Position(2, 2)),
-                new Cell(new Letter("X"), new Position(2, 1))
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(1))),
+                new Cell(new Letter("O"), new Position(new Column(3), new Row(3))),
+                new Cell(new Letter("X"), new Position(new Column(3), new Row(1))),
+                new Cell(new Letter("O"), new Position(new Column(2), new Row(2))),
+                new Cell(new Letter("X"), new Position(new Column(2), new Row(1)))
             };
 
             PlayAllTurns();
@@ -123,7 +123,7 @@ namespace TicTacToeKata.Tests
                      _game = new TicTacToe();
                      _turns = new List<Cell>
                      {
-                         new Cell(new Letter("Z"), new Position(1, 1))
+                         new Cell(new Letter("Z"), new Position(new Column(1), new Row(1)))
                      };
 
                      PlayAllTurns();
@@ -138,7 +138,7 @@ namespace TicTacToeKata.Tests
                 _game = new TicTacToe();
                 _turns = new List<Cell>
                      {
-                         new Cell(new Letter("X"), new Position(-1, 1))
+                         new Cell(new Letter("X"), new Position(new Column(-1), new Row(1)))
                      };
 
                 PlayAllTurns();
