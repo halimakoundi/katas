@@ -5,10 +5,10 @@
         private readonly Position _position;
         private readonly Letter _letter;
 
-        public Cell(string letter, int column, int row)
+        public Cell(Letter letter, Position position)
         {
-            _letter = new Letter(letter);
-            _position = new Position(column, row);
+            _letter = letter;
+            _position = position;
         }
 
 
