@@ -3,6 +3,7 @@ namespace TicTacToeKata.Src
     public enum GameResult
     {
         IN_PROGRESS,
-        DRAW
+        DRAW,
+        X_Wins
     }
 }

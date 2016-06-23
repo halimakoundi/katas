@@ -86,5 +86,28 @@ namespace TicTacToeKata.Tests
             Assert.That(game.GetResult(), Is.EqualTo(GameResult.DRAW));
         }
 
+        [Test]
+        public void declare_X_as_winner_when_3_Xs_are_horizontally_adjacent()
+        {
+            var game = new TicTacToe();
+            var turns = new List<Cell>
+            {
+                new Cell("X", 1, 1),
+                new Cell("O", 3, 3),
+                new Cell("X", 3, 1),
+                new Cell("O", 2,2),
+                new Cell("X", 2, 1)
+            };
+
+            var index = 0;
+            while (index < turns.Count)
+            {
+                game.Play(turns[index]);
+                index += 1;
+            }
+
+            Assert.That(game.GetResult(), Is.EqualTo(GameResult.X_Wins));
+        }
+
     }
 }

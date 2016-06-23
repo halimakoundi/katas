@@ -4,6 +4,7 @@
     {
         private Cell _cell = new Cell();
         private GameResult _result = GameResult.IN_PROGRESS;
+        private int _board;
 
         public bool Play(string letter, int column, int row)
         {
@@ -17,11 +18,16 @@
 
         public GameResult GetResult()
         {
+            if (_board < 9)
+            {
+                return  GameResult.X_Wins;
+            }
             return GameResult.DRAW;
         }
 
         public void Play(Cell cell)
         {
+            this._board += 1;
         }
     }
 }
