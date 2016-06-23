@@ -1,4 +1,6 @@
-﻿namespace TicTacToeKata.Src
+﻿using System;
+
+namespace TicTacToeKata.Src
 {
     public class Coordinate
     {
@@ -6,7 +8,16 @@
 
         public Coordinate(int coordinate)
         {
+            ValidateCoordinate(coordinate);
             _coordinate = coordinate;
+        }
+
+        private void ValidateCoordinate(int coordinate)
+        {
+            if (coordinate > 3 || coordinate < 0)
+            {
+                throw new Exception($"Invalid coordinate : {coordinate}");
+            }
         }
 
         protected Coordinate()

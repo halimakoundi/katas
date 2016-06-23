@@ -130,5 +130,20 @@ namespace TicTacToeKata.Tests
             });
         }
 
+        [Test]
+        public void not_add_cell_with_invalid_coordinate_to_the_board()
+        {
+            Assert.Throws(typeof(Exception),
+            () => {
+                _game = new TicTacToe();
+                _turns = new List<Cell>
+                     {
+                         new Cell("X", -1, 1)
+                     };
+
+                PlayAllTurns();
+            });
+        }
+
     }
 }
