@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
+    <Compile Include="Column.cs" />
     <Compile Include="GameResult.cs" />
     <Compile Include="Letter.cs" />
     <Compile Include="Position.cs" />
