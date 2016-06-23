@@ -40,5 +40,21 @@ namespace TicTacToeKata.Tests
             Assert.That(result, Is.EqualTo(false));
         }
 
+        [Test]
+        public void add_an_O_to_the_board_after_an_X_is_added_at_a_different_position()
+        {
+            var game = new TicTacToe();
+            var letter = "X";
+            var column = 1;
+            var row = 2;
+            var result = game.Play(letter, column, row);
+
+            letter = "O";
+            column = 3;
+            row = 1;
+            result = game.Play(letter, column, row);
+
+            Assert.That(result, Is.EqualTo(true));
+        }
     }
 }

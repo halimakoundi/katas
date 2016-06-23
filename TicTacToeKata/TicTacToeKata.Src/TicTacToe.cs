@@ -6,7 +6,7 @@
 
         public bool Play(string letter, int column, int row)
         {
-            if (_cell.IsEmpty())
+            if (!_cell.Equals(new Cell(letter, column, row)))
             {
                 _cell = new Cell(letter, column, row);
                 return true;
