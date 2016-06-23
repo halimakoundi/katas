@@ -1,8 +1,10 @@
-﻿namespace TicTacToeKata.Src
+﻿using System;
+
+namespace TicTacToeKata.Src
 {
     public class Position
     {
-        private readonly Column _column;
+        private readonly Object _column;
         private readonly Row _row;
 
         public Position(int column, int row)

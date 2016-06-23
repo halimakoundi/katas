@@ -1,12 +1,10 @@
 ﻿namespace TicTacToeKata.Src
 {
-    public class Column
+    public class Column : Coordinate
     {
-        private readonly int _column;
-
-        public Column(int column)
+        public Column(int coordinate)
         {
-            _column = column;
+            _coordinate = coordinate;
         }
 
         public Column()
@@ -15,8 +13,8 @@
 
         public override bool Equals(object obj)
         {
-            var otherColumn = (Column)obj;
-            return _column == otherColumn._column;
+            var otherColumn = (Coordinate)obj;
+            return _coordinate == otherColumn._coordinate;
         }
     }
 }
