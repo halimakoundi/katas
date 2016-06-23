@@ -2,19 +2,15 @@
 {
     public class TicTacToe
     {
-        private string _letter;
-        private int _column;
-        private int _row;
+        private Cell _cell = new Cell();
 
         public bool Play(string letter, int column, int row)
         {
-            if (letter == _letter && column == _column && row == _row)
+            if (!_cell.IsEmpty())
             {
                 return false;
             }
-            _letter = letter;
-            _row = row;
-            _column = column;
+            _cell = new Cell(letter,column,row);
             return true;
         }
 
