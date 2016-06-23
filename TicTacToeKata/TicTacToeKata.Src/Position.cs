@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TicTacToeKata.Src
+﻿namespace TicTacToeKata.Src
 {
     public class Position
     {
