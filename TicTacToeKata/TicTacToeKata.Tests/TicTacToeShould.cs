@@ -25,5 +25,6 @@ namespace TicTacToeKata.Tests
             var game = new TicTacToe();
             Assert.AreEqual(true, game.Play(letter, column, row));
         }
+        
     }
 }
