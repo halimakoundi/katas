@@ -3,11 +3,11 @@
     public class Row:Coordinate
     {
         public Row(int coordinate)
+            : base(coordinate)
         {
-            _coordinate = coordinate;
         }
 
-        public Row()
+        public Row() : base()
         {
         }
 
