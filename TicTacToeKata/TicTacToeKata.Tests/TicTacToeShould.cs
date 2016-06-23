@@ -47,12 +47,12 @@ namespace TicTacToeKata.Tests
             var letter = "X";
             var column = 1;
             var row = 2;
-            var result = game.Play(letter, column, row);
+            game.Play(letter, column, row);
 
             letter = "O";
             column = 3;
             row = 1;
-            result = game.Play(letter, column, row);
+            var result = game.Play(letter, column, row);
 
             Assert.That(result, Is.EqualTo(true));
         }
