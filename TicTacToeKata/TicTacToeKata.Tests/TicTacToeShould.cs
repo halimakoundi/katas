@@ -75,7 +75,6 @@ namespace TicTacToeKata.Tests
             PlayAllTurns();
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
         }
-
         [Test]
         public void declare_game_as_draw_when_board_is_full_with_no_winner()
         {
