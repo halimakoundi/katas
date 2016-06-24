@@ -15,10 +15,10 @@ var extractNumbersToSum = function (expression) {
 
 var ArithmeticExpression = function (expression) {
     var defaultDelimiter = ",";
-    var numbersAsString = expression;
-    var delimiters = getDelimiters(expression, numbersAsString);
+    
+    var delimiters = getDelimiters(expression);
 
-    numbersAsString = replaceDelimitersinExpressionWithDefaultDelimiter(numbersAsString, delimiters, defaultDelimiter);
+    var numbersAsString = getNumbersAsString(expression, delimiters, defaultDelimiter);
 
     this.numbersToSum = function () {
         var parameters = numbersAsString.split(defaultDelimiter)
@@ -36,12 +36,22 @@ var getDelimiters = function (expression) {
 
     if (isDelimiterDefinedInExpression(expressions)) {
         delimiters = getDelimitersFrom(expressions[0]);
-        numbersAsString = expressions[1].replace(specialDelimiter, '');
     }
     delimiters = delimiters.concat(findAdditionalDelimiters(expression));
     return delimiters;
 }
 
+var getNumbersAsString = function (expression, delimiters, defaultDelimiter)
+{
+    var expressions = expression.split(newLine);
+    var numbersAsString = expression;
+    if (isDelimiterDefinedInExpression(expressions)) {
+        numbersAsString = expressions[1].replace(specialDelimiter, '');
+    }
+    numbersAsString = replaceDelimitersinExpressionWithDefaultDelimiter(numbersAsString, delimiters, defaultDelimiter);
+
+    return numbersAsString;
+}
 var getDelimitersFrom = function (delimitingExpression) {
     var delimiters = [];
     if (delimitingExpression.search(delimiterDefinerRegex) > -1) {
