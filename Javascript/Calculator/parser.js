@@ -15,9 +15,7 @@ var extractNumbersToSum = function (expression) {
 
 var ArithmeticExpression = function (expression) {
     var defaultDelimiter = ",";
-
     var delimiters = getDelimiters(expression);
-
     var numbersAsString = getNumbersAsString(expression, delimiters, defaultDelimiter);
 
     this.numbersToSum = function () {
