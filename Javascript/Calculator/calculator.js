@@ -25,8 +25,28 @@ var add = function (expression) {
     return result;
 }
 
+var result = function (numbersToSum) {
+    var sum = 0;
+    var numbersToSum = numbersToSum;
+
+    var sumAllNumbers = function () {
+        handleNegativeNumbers(numbersToSum);
+        for (number of numbersToSum) {
+            if (isBelowThreshold(number)) {
+                sum += number;
+            }
+        }
+    }
+
+    this.getSum = function() {
+        return sum;
+    }
+
+    return this;
+}
+
 var handleNegativeNumbers = function (numbersToSum) {
-    var negativeNumbers = numbersToSum.filter(function(n) { return n < 0 });
+    var negativeNumbers = numbersToSum.filter(function (n) { return n < 0 });
     if (negativeNumbers.length > 0) {
         throw new Error(NEGATIVE_NUMBER_ERORR_MESSAGE + negativeNumbers.join(", "));
     };
