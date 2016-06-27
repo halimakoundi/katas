@@ -13,8 +13,7 @@ var add = function (expression) {
     if (!expression) {
         return 0;
     }
-    var numbersToSum = this._parser.extractNumbersToSum(expression);
-    var result = new Result(numbersToSum);
+    var result = new Result(this._parser.extractNumbersToSum(expression));
     result.sumAllNumbers();
 
     return result.getSum();
