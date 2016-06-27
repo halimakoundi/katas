@@ -10,26 +10,21 @@ exports.new = function (parser) {
 }
 
 var add = function (expression) {
-    var result = 0;
-    if (expression) {
-        var numbersToSum = this._parser.extractNumbersToSum(expression);
-        for (number of numbersToSum) {
-            if (number < 0) {
-                handleNegativeNumbers(numbersToSum);
-            }
-            if (isBelowThreshold(number)) {
-                result += number;
-            }
-        }
+    if (!expression) {
+        return 0;
     }
-    return result;
+    var numbersToSum = this._parser.extractNumbersToSum(expression);
+    var result = new Result(numbersToSum);
+    result.sumAllNumbers();
+
+    return result.getSum();
 }
 
-var result = function (numbersToSum) {
+var Result = function (numbersToSum) {
     var sum = 0;
     var numbersToSum = numbersToSum;
 
-    var sumAllNumbers = function () {
+    this.sumAllNumbers = function () {
         handleNegativeNumbers(numbersToSum);
         for (number of numbersToSum) {
             if (isBelowThreshold(number)) {
@@ -38,7 +33,7 @@ var result = function (numbersToSum) {
         }
     }
 
-    this.getSum = function() {
+    this.getSum = function () {
         return sum;
     }
 
