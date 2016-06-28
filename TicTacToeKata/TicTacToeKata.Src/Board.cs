@@ -19,17 +19,16 @@ namespace TicTacToeKata.Src
             {
                 return GameResult.IN_PROGRESS;
             }
-            if (_cells.Count < 9)
-            {
-                if (ContainsThreeAdjacentOs(new Letter("O"))
+           
+                if (ContainsThreeHorizontallyAdjacentLetters(new Letter("O"), Row.Top)
                     || ContainsThreeVerticallyAdjacentOs(new Letter("O"), Column.Center)
                     || ContainsThreeVerticallyAdjacentOs(new Letter("O"), Column.Left))
                 {
                     return GameResult.O_Wins;
                 }
-                return GameResult.X_Wins;
-            }
-            if (ContainsThreeAdjacentXs(new Letter("X")))
+            
+            if (ContainsThreeAdjacentXs(new Letter("X"), Column.Left)
+                || ContainsThreeHorizontallyAdjacentLetters(new Letter("X"), Row.Top))
             {
                 return GameResult.X_Wins;
             }
@@ -51,9 +50,8 @@ namespace TicTacToeKata.Src
             return containsThreeAdjacentLetters;
         }
 
-        private bool ContainsThreeAdjacentOs(Letter letter)
+        private bool ContainsThreeHorizontallyAdjacentLetters(Letter letter, Row adjacentRow)
         {
-            var adjacentRow = Row.Top;
             var column = Column.Left;
 
             bool containsThreeAdjacentLetters = true;
@@ -68,9 +66,8 @@ namespace TicTacToeKata.Src
             return containsThreeAdjacentLetters;
         }
 
-        private bool ContainsThreeAdjacentXs(Letter letter)
+        private bool ContainsThreeAdjacentXs(Letter letter, Column adjacentColumn)
         {
-            var adjacentColumn = Column.Left;
             var row = Row.Top;
 
             bool containsThreeAdjacentLetters = true;
