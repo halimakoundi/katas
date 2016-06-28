@@ -22,7 +22,8 @@ namespace TicTacToeKata.Src
             if (_cells.Count < 9)
             {
                 if (ContainsThreeAdjacentOs(new Letter("O"))
-                    || ContainsThreeVerticallyAdjacentOs(new Letter("O")))
+                    || ContainsThreeVerticallyAdjacentOs(new Letter("O"), Column.Center)
+                    || ContainsThreeVerticallyAdjacentOs(new Letter("O"), Column.Left))
                 {
                     return GameResult.O_Wins;
                 }
@@ -35,9 +36,8 @@ namespace TicTacToeKata.Src
             return GameResult.DRAW;
         }
 
-        private bool ContainsThreeVerticallyAdjacentOs(Letter letter)
+        private bool ContainsThreeVerticallyAdjacentOs(Letter letter, Column adjacentColumn)
         {
-            var adjacentColumn = Column.Center;
             var row = Row.Top;
 
             bool containsThreeAdjacentLetters = true;

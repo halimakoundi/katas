@@ -192,5 +192,24 @@ namespace TicTacToeKata.Tests
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.O_Wins));
         }
 
+        [Test]
+        public void declare_O_as_winner_when_3_Os_are_vertically_adjacent_OnLeftColumn()
+        {
+            _game = new TicTacToe();
+            _turns = new List<Cell>
+            {
+                new Cell(new Letter("X"), new Position(Column.Right, Row.Bottom)),
+                new Cell(new Letter("O"), new Position(Column.Left, Row.Bottom)),
+                new Cell(new Letter("X"), new Position(Column.Right, Row.Top)),
+                new Cell(new Letter("O"), new Position(Column.Left, Row.Center)),
+                new Cell(new Letter("X"), new Position(Column.Center, Row.Bottom)),
+                new Cell(new Letter("O"), new Position(Column.Left, Row.Top))
+            };
+
+            PlayAllTurns();
+
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.O_Wins));
+        }
+
     }
 }
