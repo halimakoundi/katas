@@ -2,8 +2,8 @@
 {
     public class Position
     {
-        private readonly Coordinate _column;
-        private readonly Coordinate _row;
+        private readonly Column _column;
+        private readonly Row _row;
 
         public Position(Column column, Row row)
         {

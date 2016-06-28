@@ -32,9 +32,9 @@ namespace TicTacToeKata.Src
 
         private bool ContainsThreeAdjacentXs()
         {
-            return _cells.Contains(new Cell(new Letter("X"), new Position(new Column(1), new Row(1))))
-                   && _cells.Contains(new Cell(new Letter("X"), new Position(new Column(1), new Row(3))))
-                   && _cells.Contains(new Cell(new Letter("X"), new Position(new Column(1), new Row(2))));
+            return _cells.Contains(new Cell(new Letter("X"), new Position(Column.Left, Row.Top)))
+                   && _cells.Contains(new Cell(new Letter("X"), new Position(Column.Left, Row.Bottom)))
+                   && _cells.Contains(new Cell(new Letter("X"), new Position(Column.Left, Row.Center)));
         }
 
         public void ValidateCell(Cell cell)

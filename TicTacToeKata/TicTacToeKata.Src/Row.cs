@@ -1,10 +1,9 @@
 ﻿namespace TicTacToeKata.Src
 {
-    public class Row : Coordinate
+    public enum Row
     {
-        public Row(int coordinate)
-            : base(coordinate)
-        {
-        }
+        Top = 1,
+        Center = 2,
+        Bottom = 3,
     }
 }

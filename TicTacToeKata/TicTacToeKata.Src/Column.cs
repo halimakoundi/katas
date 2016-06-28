@@ -1,9 +1,9 @@
 ﻿namespace TicTacToeKata.Src
 {
-    public class Column : Coordinate
+    public enum Column
     {
-        public Column(int coordinate) : base(coordinate)
-        {
-        }
+        Left = 1,
+        Center = 2,
+        Right = 3
     }
 }
