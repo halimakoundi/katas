@@ -40,9 +40,16 @@ namespace TicTacToeKata.Src
             var adjacentRow = Row.Top;
 
             var column = Column.Left;
-            return _cells.Contains(new Cell(new Letter(letter), new Position(column, adjacentRow)))
-                   && _cells.Contains(new Cell(new Letter(letter), new Position(column + 1, adjacentRow)))
-                   && _cells.Contains(new Cell(new Letter(letter), new Position(column + 2, adjacentRow)));
+            bool containsThreeAdjacentOs = true;
+            for (var i = (int)column; i < 4; i++)
+            {
+                if (!_cells.Contains(new Cell(new Letter(letter), new Position(column, adjacentRow))))
+                {
+                    containsThreeAdjacentOs = false;
+                }
+            }
+
+            return containsThreeAdjacentOs;
         }
 
         private bool ContainsThreeAdjacentXs()
