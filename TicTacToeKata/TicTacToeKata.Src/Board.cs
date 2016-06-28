@@ -19,14 +19,14 @@ namespace TicTacToeKata.Src
             {
                 return GameResult.IN_PROGRESS;
             }
-           
-                if (ContainsThreeHorizontallyAdjacentLetters(new Letter("O"), Row.Top)
-                    || ContainsThreeVerticallyAdjacentLetters(new Letter("O"), Column.Center)
-                    || ContainsThreeVerticallyAdjacentLetters(new Letter("O"), Column.Left))
-                {
-                    return GameResult.O_Wins;
-                }
-            
+
+            if (ContainsThreeHorizontallyAdjacentLetters(new Letter("O"), Row.Top)
+                || ContainsThreeVerticallyAdjacentLetters(new Letter("O"), Column.Center)
+                || ContainsThreeVerticallyAdjacentLetters(new Letter("O"), Column.Left))
+            {
+                return GameResult.O_Wins;
+            }
+
             if (ContainsThreeVerticallyAdjacentLetters(new Letter("X"), Column.Left)
                 || ContainsThreeHorizontallyAdjacentLetters(new Letter("X"), Row.Top))
             {

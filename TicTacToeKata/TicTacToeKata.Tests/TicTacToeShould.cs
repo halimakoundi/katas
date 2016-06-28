@@ -114,17 +114,17 @@ namespace TicTacToeKata.Tests
                 });
         }
 
-        [Test]
-        public void declare_X_as_winner_when_3_Xs_are_horizontally_adjacent()
+        [TestCase(Row.Top)]
+        public void declare_X_as_winner_when_3_Xs_are_horizontally_adjacent(Row adjacentRow)
         {
             _game = new TicTacToe();
             _turns = new List<Cell>
             {
-                new Cell(new Letter("X"), new Position(Column.Left, Row.Top)),
+                new Cell(new Letter("X"), new Position(Column.Left, adjacentRow)),
                 new Cell(new Letter("O"), new Position(Column.Right, Row.Bottom)),
-                new Cell(new Letter("X"), new Position(Column.Right, Row.Top)),
+                new Cell(new Letter("X"), new Position(Column.Right, adjacentRow)),
                 new Cell(new Letter("O"), new Position(Column.Center, Row.Center)),
-                new Cell(new Letter("X"), new Position(Column.Center, Row.Top))
+                new Cell(new Letter("X"), new Position(Column.Center, adjacentRow))
             };
 
             PlayAllTurns();
