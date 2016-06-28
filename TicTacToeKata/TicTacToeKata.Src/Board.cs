@@ -36,31 +36,37 @@ namespace TicTacToeKata.Src
 
         private bool ContainsThreeAdjacentOs()
         {
-            var letter = "O";
             var adjacentRow = Row.Top;
-
+            var letter = new Letter("O");
             var column = Column.Left;
-            bool containsThreeAdjacentOs = true;
+
+            bool containsThreeAdjacentLetters = true;
             for (var i = (int)column; i < 4; i++)
             {
-                if (!_cells.Contains(new Cell(new Letter(letter), new Position(column, adjacentRow))))
+                if (!_cells.Contains(new Cell(letter, new Position((Column)i, adjacentRow))))
                 {
-                    containsThreeAdjacentOs = false;
+                    containsThreeAdjacentLetters = false;
                 }
             }
 
-            return containsThreeAdjacentOs;
+            return containsThreeAdjacentLetters;
         }
 
         private bool ContainsThreeAdjacentXs()
         {
-            var letter = "X";
+            var letter = new Letter("X");
             var adjacentColumn = Column.Left;
-
             var row = Row.Top;
-            return _cells.Contains(new Cell(new Letter(letter), new Position(adjacentColumn, row)))
-                   && _cells.Contains(new Cell(new Letter(letter), new Position(adjacentColumn, row + 1)))
-                   && _cells.Contains(new Cell(new Letter(letter), new Position(adjacentColumn, row + 2)));
+
+            bool containsThreeAdjacentLetters = true;
+            for (var i = (int)row; i < 4; i++)
+            {
+                if (!_cells.Contains(new Cell(letter, new Position(adjacentColumn, (Row)i))))
+                {
+                    containsThreeAdjacentLetters = false;
+                }
+            }
+            return containsThreeAdjacentLetters;
         }
 
         public void ValidateCell(Cell cell)
