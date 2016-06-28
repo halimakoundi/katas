@@ -147,5 +147,27 @@ namespace TicTacToeKata.Tests
             });
         }
 
+        [Test]
+        public void declare_X_as_winner_when_3_Xs_are_vertically_adjacent()
+        {
+            _turns = new List<Cell>
+            {
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(1))),
+                new Cell(new Letter("O"), new Position(new Column(3), new Row(3))),
+                new Cell(new Letter("X"), new Position(new Column(3), new Row(1))),
+                new Cell(new Letter("O"), new Position(new Column(2), new Row(1))),
+                new Cell(new Letter("X"), new Position(new Column(2), new Row(2))),
+                new Cell(new Letter("O"), new Position(new Column(3), new Row(2))),
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(3))),
+                new Cell(new Letter("O"), new Position(new Column(2), new Row(3))),
+                new Cell(new Letter("X"), new Position(new Column(1), new Row(2)))
+            };
+            _game = new TicTacToe();
+
+            PlayAllTurns();
+
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.X_Wins));
+        }
+
     }
 }
