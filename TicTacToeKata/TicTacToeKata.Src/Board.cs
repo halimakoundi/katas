@@ -21,6 +21,10 @@ namespace TicTacToeKata.Src
             }
             if (_cells.Count < 9)
             {
+                if (ContainsThreeAdjacentOs())
+                {
+                    return GameResult.O_Wins;
+                }
                 return GameResult.X_Wins;
             }
             if (ContainsThreeAdjacentXs())
@@ -28,6 +32,13 @@ namespace TicTacToeKata.Src
                 return GameResult.X_Wins;
             }
             return GameResult.DRAW;
+        }
+
+        private bool ContainsThreeAdjacentOs()
+        {
+            return _cells.Contains(new Cell(new Letter("O"), new Position(Column.Left, Row.Top)))
+                   && _cells.Contains(new Cell(new Letter("O"), new Position(Column.Center, Row.Top)))
+                   && _cells.Contains(new Cell(new Letter("O"), new Position(Column.Right, Row.Top)));
         }
 
         private bool ContainsThreeAdjacentXs()

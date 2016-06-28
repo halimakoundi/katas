@@ -4,6 +4,7 @@ namespace TicTacToeKata.Src
     {
         IN_PROGRESS,
         DRAW,
-        X_Wins
+        X_Wins,
+        O_Wins
     }
 }

@@ -25,7 +25,7 @@ namespace TicTacToeKata.Tests
         private List<Cell> _turns;
         private TicTacToe _game;
 
-        [TestCase("X", 1, 3, true)]
+        [TestCase("X", Column.Left, Row.Bottom, true)]
         public void add_an_X_to_the_board_on_given_coordinates(string letter, Column column, Row row, bool expected)
         {
             _game = new TicTacToe();
@@ -75,6 +75,7 @@ namespace TicTacToeKata.Tests
             PlayAllTurns();
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.IN_PROGRESS));
         }
+
         [Test]
         public void declare_game_as_draw_when_board_is_full_with_no_winner()
         {
@@ -98,6 +99,22 @@ namespace TicTacToeKata.Tests
         }
 
         [Test]
+        public void not_add_invalid_letter_to_the_board()
+        {
+            Assert.Throws(typeof(Exception),
+                () =>
+                {
+                    _game = new TicTacToe();
+                    _turns = new List<Cell>
+                    {
+                        new Cell(new Letter("Z"), new Position(Column.Left, Row.Top))
+                    };
+
+                    PlayAllTurns();
+                });
+        }
+
+        [Test]
         public void declare_X_as_winner_when_3_Xs_are_horizontally_adjacent()
         {
             _game = new TicTacToe();
@@ -113,22 +130,6 @@ namespace TicTacToeKata.Tests
             PlayAllTurns();
 
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.X_Wins));
-        }
-
-        [Test]
-        public void not_add_invalid_letter_to_the_board()
-        {
-            Assert.Throws(typeof(Exception),
-            () =>
-            {
-                _game = new TicTacToe();
-                _turns = new List<Cell>
-                     {
-                         new Cell(new Letter("Z"), new Position(Column.Left, Row.Top))
-                     };
-
-                PlayAllTurns();
-            });
         }
 
         [Test]
@@ -151,6 +152,25 @@ namespace TicTacToeKata.Tests
             PlayAllTurns();
 
             Assert.That(_game.GetResult(), Is.EqualTo(GameResult.X_Wins));
+        }
+
+        [Test]
+        public void declare_O_as_winner_when_3_Os_are_horizontally_adjacent()
+        {
+            _game = new TicTacToe();
+            _turns = new List<Cell>
+            {
+                new Cell(new Letter("X"), new Position(Column.Right, Row.Bottom)),
+                new Cell(new Letter("O"), new Position(Column.Left, Row.Top)),
+                new Cell(new Letter("X"), new Position(Column.Center, Row.Center)),
+                new Cell(new Letter("O"), new Position(Column.Right, Row.Top)),
+                new Cell(new Letter("X"), new Position(Column.Left, Row.Center)),
+                new Cell(new Letter("O"), new Position(Column.Center, Row.Top))
+            };
+
+            PlayAllTurns();
+
+            Assert.That(_game.GetResult(), Is.EqualTo(GameResult.O_Wins));
         }
 
     }
