@@ -21,13 +21,13 @@ namespace TicTacToeKata.Src
             }
            
                 if (ContainsThreeHorizontallyAdjacentLetters(new Letter("O"), Row.Top)
-                    || ContainsThreeVerticallyAdjacentOs(new Letter("O"), Column.Center)
-                    || ContainsThreeVerticallyAdjacentOs(new Letter("O"), Column.Left))
+                    || ContainsThreeVerticallyAdjacentLetters(new Letter("O"), Column.Center)
+                    || ContainsThreeVerticallyAdjacentLetters(new Letter("O"), Column.Left))
                 {
                     return GameResult.O_Wins;
                 }
             
-            if (ContainsThreeAdjacentXs(new Letter("X"), Column.Left)
+            if (ContainsThreeVerticallyAdjacentLetters(new Letter("X"), Column.Left)
                 || ContainsThreeHorizontallyAdjacentLetters(new Letter("X"), Row.Top))
             {
                 return GameResult.X_Wins;
@@ -35,7 +35,7 @@ namespace TicTacToeKata.Src
             return GameResult.DRAW;
         }
 
-        private bool ContainsThreeVerticallyAdjacentOs(Letter letter, Column adjacentColumn)
+        private bool ContainsThreeVerticallyAdjacentLetters(Letter letter, Column adjacentColumn)
         {
             var row = Row.Top;
 
