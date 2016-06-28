@@ -66,21 +66,6 @@ namespace TicTacToeKata.Src
             return containsThreeAdjacentLetters;
         }
 
-        private bool ContainsThreeAdjacentXs(Letter letter, Column adjacentColumn)
-        {
-            var row = Row.Top;
-
-            bool containsThreeAdjacentLetters = true;
-            for (var i = (int)row; i < 4; i++)
-            {
-                if (!_cells.Contains(new Cell(letter, new Position(adjacentColumn, (Row)i))))
-                {
-                    containsThreeAdjacentLetters = false;
-                }
-            }
-            return containsThreeAdjacentLetters;
-        }
-
         public void ValidateCell(Cell cell)
         {
             if (_cells.Contains(cell))
