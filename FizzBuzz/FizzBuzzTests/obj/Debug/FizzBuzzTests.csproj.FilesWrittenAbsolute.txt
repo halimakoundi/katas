@@ -1,0 +1,10 @@
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/nunit.framework.dll
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzz.exe
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzz.exe.mdb
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzTests.dll.mdb
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzTests.dll
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/obj/Debug/FizzBuzzTests.dll
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/obj/Debug/FizzBuzzTests.dll.mdb
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzGame.dll
+/home/halima/GitRepo/Katas/FizzBuzz/FizzBuzz/FizzBuzzTests/bin/Debug/FizzBuzzGame.dll.mdb
