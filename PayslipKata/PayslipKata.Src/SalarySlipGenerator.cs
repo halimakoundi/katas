@@ -8,11 +8,25 @@ namespace PayslipKata.Src
 
         public Payslip GenerateFor(Employee employee)
         {
-            var grossSalary = Math.Round(employee.AnnualSalary / 12m, 2);
+            var grossSalary = MonthlyGrossSalary(employee);
             var nationalInsuranceContributions = new NationalInsuranceContributionCalculator().NationalInsuranceContributions(employee.AnnualSalary);
-            return new Payslip(employee, grossSalary, nationalInsuranceContributions, 916.67m, 1083.33m, 216.67m);
+            var payslip = new Payslip(employee, grossSalary, nationalInsuranceContributions, TaxFreeAllowance(), TaxableIncome(employee), 216.67m);
+            return payslip;
         }
 
+        private static decimal MonthlyGrossSalary(Employee employee)
+        {
+            return Math.Round(employee.AnnualSalary / 12m, 2);
+        }
 
+        private static decimal TaxFreeAllowance()
+        {
+            return 916.67m;
+        }
+
+        private static decimal TaxableIncome(Employee employee)
+        {
+            return Math.Round((employee.AnnualSalary - 11000m) / 12m, 2);
+        }
     }
 }

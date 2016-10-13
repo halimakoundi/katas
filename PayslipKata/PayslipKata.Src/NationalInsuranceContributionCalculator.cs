@@ -12,10 +12,10 @@ namespace PayslipKata.Src
         {
             var annualContribution = BasicContributionBandExcess(annualSalary) * BasicContributionRate;
             var monthlyContribution = annualContribution / 12m;
-            return Math.Round(monthlyContribution, 2, MidpointRounding.ToEven);
+            return Math.Round(monthlyContribution, 2, MidpointRounding.AwayFromZero);
         }
 
-        public decimal BasicContributionBandExcess(decimal annualSalary)
+        private decimal BasicContributionBandExcess(decimal annualSalary)
         {
             return IsBelowBasicBandLowerLimit(annualSalary) ? 0 : SalaryExcess(annualSalary);
         }

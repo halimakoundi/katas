@@ -27,7 +27,7 @@ namespace PayslipKata.Src
             return string.Equals(_employeeId, other._employeeId) 
                    && string.Equals(_employeeName, other._employeeName) 
                    && _grossSalary == other._grossSalary 
-                   && _nationalInsuranceContributions == other._nationalInsuranceContributions 
+                   && _nationalInsuranceContributions.Equals(other._nationalInsuranceContributions)
                    && _taxFreeAllowance == other._taxFreeAllowance 
                    && _taxableIncome == other._taxableIncome 
                    && _taxPayable == other._taxPayable;
@@ -46,19 +46,20 @@ namespace PayslipKata.Src
             unchecked
             {
                 var hashCode = _employeeId?.GetHashCode() ?? 0;
-                hashCode = (hashCode*397) ^ (_employeeName?.GetHashCode() ?? 0);
-                hashCode = (hashCode*397) ^ _grossSalary.GetHashCode();
-                hashCode = (hashCode*397) ^ _nationalInsuranceContributions.GetHashCode();
-                hashCode = (hashCode*397) ^ _taxFreeAllowance.GetHashCode();
-                hashCode = (hashCode*397) ^ _taxableIncome.GetHashCode();
-                hashCode = (hashCode*397) ^ _taxPayable.GetHashCode();
+                hashCode = (hashCode * 397) ^ (_employeeName?.GetHashCode() ?? 0);
+                hashCode = (hashCode * 397) ^ _grossSalary.GetHashCode();
+                hashCode = (hashCode * 397) ^ _nationalInsuranceContributions.GetHashCode();
+                hashCode = (hashCode * 397) ^ _taxFreeAllowance.GetHashCode();
+                hashCode = (hashCode * 397) ^ _taxableIncome.GetHashCode();
+                hashCode = (hashCode * 397) ^ _taxPayable.GetHashCode();
                 return hashCode;
             }
         }
 
         public override string ToString()
         {
-            return $"{_nationalInsuranceContributions}";
+            return $"{_employeeId},{ _employeeName},{_grossSalary},{ _nationalInsuranceContributions}"
+                + $", {_taxFreeAllowance}, {_taxableIncome} , {_taxPayable}";
         }
     }
 }
